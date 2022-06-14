@@ -1,0 +1,1650 @@
+<?php 
+    session_start();
+
+	include("connection.php");
+	include("functions.php");
+?>
+
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styl3.css"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="main3.js"></script>
+    <script src="kalkulator2.js"></script>
+    <script type="text/javascript" src="papaparse.min.js"></script>
+    <!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>--> 
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script>
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<style type="text/css">
+    
+    /*Wymiar Sprawiedliwości*/
+    .wymiar_sprawiedliwosci {
+        display:inline-block;
+        position:relative;
+        border-bottom:1px dotted #666;
+        text-align:left;
+    }
+
+    .wymiar_sprawiedliwosci h3 {margin:12px 0;}
+
+    .wymiar_sprawiedliwosci .wymiar_sprawiedliwosci_plus {
+        min-width:200px;
+        max-width:400px;
+        top:-20px;
+        left:50%;
+        transform:translate(-30%,-100%);
+        padding:10px 20px;
+        color:#ffffff;
+        background-color:#009cdc;
+        font-weight:normal;
+        font-size:14px;
+        border-radius:8px;
+        position:absolute;
+        z-index:99999999;
+        box-sizing:border-box;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+        display:none;
+    }
+
+    .wymiar_sprawiedliwosci:hover .wymiar_sprawiedliwosci_plus {
+        display:block;
+    }
+
+    .wymiar_sprawiedliwosci .wymiar_sprawiedliwosci_plus i {
+        position:absolute;
+        top:100%;
+        left:30%;
+        margin-left:-15px;
+        width:30px;
+        height:15px;
+        overflow:hidden;
+    }
+
+    .wymiar_sprawiedliwosci .wymiar_sprawiedliwosci_plus i::after {
+        content:'';
+        position:absolute;
+        width:15px;
+        height:15px;
+        left:50%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        background-color:#009cdc;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    }
+    /*Bezpieczeństwo i Straż*/
+    .bezpieczenstwo_i_straz {
+        display:inline-block;
+        position:relative;
+        border-bottom:1px dotted #666;
+        text-align:left;
+    }
+
+    .bezpieczenstwo_i_straz h3 {margin:12px 0;}
+
+    .bezpieczenstwo_i_straz .bezpieczenstwo_i_straz_plus {
+        min-width:200px;
+        max-width:400px;
+        top:-20px;
+        left:50%;
+        transform:translate(-30%,-100%);
+        padding:10px 20px;
+        color:#ffffff;
+        background-color:#009cdc;
+        font-weight:normal;
+        font-size:14px;
+        border-radius:8px;
+        position:absolute;
+        z-index:99999999;
+        box-sizing:border-box;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+        display:none;
+    }
+
+    .bezpieczenstwo_i_straz:hover .bezpieczenstwo_i_straz_plus {
+        display:block;
+    }
+
+    .bezpieczenstwo_i_straz .bezpieczenstwo_i_straz_plus i {
+        position:absolute;
+        top:100%;
+        left:30%;
+        margin-left:-15px;
+        width:30px;
+        height:15px;
+        overflow:hidden;
+    }
+
+    .bezpieczenstwo_i_straz .bezpieczenstwo_i_straz_plus i::after {
+        content:'';
+        position:absolute;
+        width:15px;
+        height:15px;
+        left:50%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        background-color:#009cdc;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    }
+    /*Działalność Usługowa*/
+    .dzialalnosc_uslugowa {
+        display:inline-block;
+        position:relative;
+        border-bottom:1px dotted #666;
+        text-align:left;
+    }
+
+    .dzialalnosc_uslugowa h3 {margin:12px 0;}
+
+    .dzialalnosc_uslugowa .dzialalnosc_uslugowa_plus {
+        min-width:200px;
+        max-width:400px;
+        top:-20px;
+        left:50%;
+        transform:translate(-30%,-100%);
+        padding:10px 20px;
+        color:#ffffff;
+        background-color:#009cdc;
+        font-weight:normal;
+        font-size:14px;
+        border-radius:8px;
+        position:absolute;
+        z-index:99999999;
+        box-sizing:border-box;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+        display:none;
+    }
+
+    .dzialalnosc_uslugowa:hover .dzialalnosc_uslugowa_plus {
+        display:block;
+    }
+
+    .dzialalnosc_uslugowa .dzialalnosc_uslugowa_plus i {
+        position:absolute;
+        top:100%;
+        left:30%;
+        margin-left:-15px;
+        width:30px;
+        height:15px;
+        overflow:hidden;
+    }
+
+    .dzialalnosc_uslugowa .dzialalnosc_uslugowa_plus i::after {
+        content:'';
+        position:absolute;
+        width:15px;
+        height:15px;
+        left:50%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        background-color:#009cdc;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    }
+    /*Kultura Fizyczna*/
+    .kultura_fizyczna {
+        display:inline-block;
+        position:relative;
+        border-bottom:1px dotted #666;
+        text-align:left;
+    }
+
+    .kultura_fizyczna h3 {margin:12px 0;}
+
+    .kultura_fizyczna .kultura_fizyczna_plus {
+        min-width:200px;
+        max-width:400px;
+        top:-20px;
+        left:50%;
+        transform:translate(-30%,-100%);
+        padding:10px 20px;
+        color:#ffffff;
+        background-color:#009cdc;
+        font-weight:normal;
+        font-size:14px;
+        border-radius:8px;
+        position:absolute;
+        z-index:99999999;
+        box-sizing:border-box;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+        display:none;
+    }
+
+    .kultura_fizyczna:hover .kultura_fizyczna_plus {
+        display:block;
+    }
+
+    .kultura_fizyczna .kultura_fizyczna_plus i {
+        position:absolute;
+        top:100%;
+        left:30%;
+        margin-left:-15px;
+        width:30px;
+        height:15px;
+        overflow:hidden;
+    }
+
+    .kultura_fizyczna .kultura_fizyczna_plus i::after {
+        content:'';
+        position:absolute;
+        width:15px;
+        height:15px;
+        left:50%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        background-color:#009cdc;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    }
+    /*Kultura i Dziedzictwo*/
+    .kultura_i_dziedzictwo {
+        display:inline-block;
+        position:relative;
+        border-bottom:1px dotted #666;
+        text-align:left;
+    }
+
+    .kultura_i_dziedzictwo h3 {margin:12px 0;}
+
+    .kultura_i_dziedzictwo .kultura_i_dziedzictwo_plus {
+        min-width:200px;
+        max-width:400px;
+        top:-20px;
+        left:50%;
+        transform:translate(-30%,-100%);
+        padding:10px 20px;
+        color:#ffffff;
+        background-color:#009cdc;
+        font-weight:normal;
+        font-size:14px;
+        border-radius:8px;
+        position:absolute;
+        z-index:99999999;
+        box-sizing:border-box;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+        display:none;
+    }
+
+    .kultura_i_dziedzictwo:hover .kultura_i_dziedzictwo_plus {
+        display:block;
+    }
+
+    .kultura_i_dziedzictwo .kultura_i_dziedzictwo_plus i {
+        position:absolute;
+        top:100%;
+        left:30%;
+        margin-left:-15px;
+        width:30px;
+        height:15px;
+        overflow:hidden;
+    }
+
+    .kultura_i_dziedzictwo .kultura_i_dziedzictwo_plus i::after {
+        content:'';
+        position:absolute;
+        width:15px;
+        height:15px;
+        left:50%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        background-color:#009cdc;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    }
+    /*Różne rozliczenia*/
+    .rozne_rozliczenia {
+        display:inline-block;
+        position:relative;
+        border-bottom:1px dotted #666;
+        text-align:left;
+    }
+
+    .rozne_rozliczenia h3 {margin:12px 0;}
+
+    .rozne_rozliczenia .rozne_rozliczenia_plus {
+        min-width:200px;
+        max-width:400px;
+        top:-20px;
+        left:50%;
+        transform:translate(-30%,-100%);
+        padding:10px 20px;
+        color:#ffffff;
+        background-color:#009cdc;
+        font-weight:normal;
+        font-size:14px;
+        border-radius:8px;
+        position:absolute;
+        z-index:99999999;
+        box-sizing:border-box;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+        display:none;
+    }
+
+    .rozne_rozliczenia:hover .rozne_rozliczenia_plus {
+        display:block;
+    }
+
+    .rozne_rozliczenia .rozne_rozliczenia_plus i {
+        position:absolute;
+        top:100%;
+        left:30%;
+        margin-left:-15px;
+        width:30px;
+        height:15px;
+        overflow:hidden;
+    }
+
+    .rozne_rozliczenia .rozne_rozliczenia_plus i::after {
+        content:'';
+        position:absolute;
+        width:15px;
+        height:15px;
+        left:50%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        background-color:#009cdc;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    }
+    /*Rodzina*/
+    .rodzina_ {
+        display:inline-block;
+        position:relative;
+        border-bottom:1px dotted #666;
+        text-align:left;
+    }
+
+    .rodzina_ h3 {margin:12px 0;}
+
+    .rodzina_ .rodzina_plus {
+        min-width:200px;
+        max-width:400px;
+        top:-20px;
+        left:50%;
+        transform:translate(-30%,-100%);
+        padding:10px 20px;
+        color:#ffffff;
+        background-color:#009cdc;
+        font-weight:normal;
+        font-size:14px;
+        border-radius:8px;
+        position:absolute;
+        z-index:99999999;
+        box-sizing:border-box;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+        display:none;
+    }
+
+    .rodzina_:hover .rodzina_plus {
+        display:block;
+    }
+
+    .rodzina_ .rodzina_plus i {
+        position:absolute;
+        top:100%;
+        left:30%;
+        margin-left:-15px;
+        width:30px;
+        height:15px;
+        overflow:hidden;
+    }
+
+    .rodzina_ .rodzina_plus i::after {
+        content:'';
+        position:absolute;
+        width:15px;
+        height:15px;
+        left:50%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        background-color:#009cdc;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    }
+    /*Obsługa długu publicznego*/
+    .obsluga_dlugu_publicznego {
+        display:inline-block;
+        position:relative;
+        border-bottom:1px dotted #666;
+        text-align:left;
+    }
+
+    .obsluga_dlugu_publicznego h3 {margin:12px 0;}
+
+    .obsluga_dlugu_publicznego .obsluga_dlugu_publicznego_plus {
+        min-width:200px;
+        max-width:400px;
+        top:-20px;
+        left:50%;
+        transform:translate(-30%,-100%);
+        padding:10px 20px;
+        color:#ffffff;
+        background-color:#009cdc;
+        font-weight:normal;
+        font-size:14px;
+        border-radius:8px;
+        position:absolute;
+        z-index:99999999;
+        box-sizing:border-box;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+        display:none;
+    }
+
+    .obsluga_dlugu_publicznego:hover .obsluga_dlugu_publicznego_plus {
+        display:block;
+    }
+
+    .obsluga_dlugu_publicznego .obsluga_dlugu_publicznego_plus i {
+        position:absolute;
+        top:100%;
+        left:30%;
+        margin-left:-15px;
+        width:30px;
+        height:15px;
+        overflow:hidden;
+    }
+
+    .obsluga_dlugu_publicznego .obsluga_dlugu_publicznego_plus i::after {
+        content:'';
+        position:absolute;
+        width:15px;
+        height:15px;
+        left:50%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        background-color:#009cdc;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    }
+    /*Edukacja, opieka wychowawcza*/
+    .edukacja_opieka_wychowawcza {
+        display:inline-block;
+        position:relative;
+        border-bottom:1px dotted #666;
+        text-align:left;
+    }
+
+    .edukacja_opieka_wychowawcza h3 {margin:12px 0;}
+
+    .edukacja_opieka_wychowawcza .edukacja_opieka_wychowawcza_plus {
+        min-width:200px;
+        max-width:400px;
+        top:-20px;
+        left:50%;
+        transform:translate(-30%,-100%);
+        padding:10px 20px;
+        color:#ffffff;
+        background-color:#009cdc;
+        font-weight:normal;
+        font-size:14px;
+        border-radius:8px;
+        position:absolute;
+        z-index:99999999;
+        box-sizing:border-box;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+        display:none;
+    }
+
+    .edukacja_opieka_wychowawcza:hover .edukacja_opieka_wychowawcza_plus {
+        display:block;
+    }
+
+    .edukacja_opieka_wychowawcza .edukacja_opieka_wychowawcza_plus i {
+        position:absolute;
+        top:100%;
+        left:30%;
+        margin-left:-15px;
+        width:30px;
+        height:15px;
+        overflow:hidden;
+    }
+
+    .edukacja_opieka_wychowawcza .edukacja_opieka_wychowawcza_plus i::after {
+        content:'';
+        position:absolute;
+        width:15px;
+        height:15px;
+        left:50%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        background-color:#009cdc;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    }
+    /*Turystyka*/
+    .turystyka_ {
+        display:inline-block;
+        position:relative;
+        border-bottom:1px dotted #666;
+        text-align:left;
+    }
+
+    .turystyka_ h3 {margin:12px 0;}
+
+    .turystyka_ .turystyka_plus {
+        min-width:200px;
+        max-width:400px;
+        top:-20px;
+        left:50%;
+        transform:translate(-30%,-100%);
+        padding:10px 20px;
+        color:#ffffff;
+        background-color:#009cdc;
+        font-weight:normal;
+        font-size:14px;
+        border-radius:8px;
+        position:absolute;
+        z-index:99999999;
+        box-sizing:border-box;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+        display:none;
+    }
+
+    .turystyka_:hover .turystyka_plus {
+        display:block;
+    }
+
+    .turystyka_ .turystyka_plus i {
+        position:absolute;
+        top:100%;
+        left:30%;
+        margin-left:-15px;
+        width:30px;
+        height:15px;
+        overflow:hidden;
+    }
+
+    .turystyka_ .turystyka_plus i::after {
+        content:'';
+        position:absolute;
+        width:15px;
+        height:15px;
+        left:50%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        background-color:#009cdc;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    }
+    /*Ochrona zdrowia*/
+    .ochrona_zdrowia {
+        display:inline-block;
+        position:relative;
+        border-bottom:1px dotted #666;
+        text-align:left;
+    }
+
+    .ochrona_zdrowia h3 {margin:12px 0;}
+
+    .ochrona_zdrowia .ochrona_zdrowia_plus {
+        min-width:200px;
+        max-width:400px;
+        top:-20px;
+        left:50%;
+        transform:translate(-30%,-100%);
+        padding:10px 20px;
+        color:#ffffff;
+        background-color:#009cdc;
+        font-weight:normal;
+        font-size:14px;
+        border-radius:8px;
+        position:absolute;
+        z-index:99999999;
+        box-sizing:border-box;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+        display:none;
+    }
+
+    .ochrona_zdrowia:hover .ochrona_zdrowia_plus {
+        display:block;
+    }
+
+    .ochrona_zdrowia .ochrona_zdrowia_plus i {
+        position:absolute;
+        top:100%;
+        left:30%;
+        margin-left:-15px;
+        width:30px;
+        height:15px;
+        overflow:hidden;
+    }
+
+    .ochrona_zdrowia .ochrona_zdrowia_plus i::after {
+        content:'';
+        position:absolute;
+        width:15px;
+        height:15px;
+        left:50%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        background-color:#009cdc;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    }
+    /*Energia*/
+    .energia {
+        display:inline-block;
+        position:relative;
+        border-bottom:1px dotted #666;
+        text-align:left;
+    }
+
+    .energia h3 {margin:12px 0;}
+
+    .energia .energia_plus {
+        min-width:200px;
+        max-width:400px;
+        top:-20px;
+        left:50%;
+        transform:translate(-30%,-100%);
+        padding:10px 20px;
+        color:#ffffff;
+        background-color:#009cdc;
+        font-weight:normal;
+        font-size:14px;
+        border-radius:8px;
+        position:absolute;
+        z-index:99999999;
+        box-sizing:border-box;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+        display:none;
+    }
+
+    .energia:hover .energia_plus {
+        display:block;
+    }
+
+    .energia .energia_plus i {
+        position:absolute;
+        top:100%;
+        left:30%;
+        margin-left:-15px;
+        width:30px;
+        height:15px;
+        overflow:hidden;
+    }
+
+    .energia .energia_plus i::after {
+        content:'';
+        position:absolute;
+        width:15px;
+        height:15px;
+        left:50%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        background-color:#009cdc;
+        box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    }
+    .tabela_zdjecia{
+        text-align: right;
+        margin-right: 10em;
+        margin-top: 30em;
+    }
+    .podrozdzialy{
+        position: absolute;
+        float: right;
+        text-align: right;
+        margin-top: 30em;
+        margin-left: 50em;
+        table-layout:fixed;
+        width:40%;
+        height: 10em;
+    }
+    .wydatki_gminy{
+        height: 150em;
+        width:  100%;
+    }
+    .wydatki_gminy input{
+        width: 30px;
+        height: 30px;
+        margin: 20px;
+    }
+    #kalkulator{
+        position: absolute;
+        top: 280em;
+    }
+    .img_wydatki select {
+      top: -29em;
+    }
+
+</style>
+<body>
+    <header>
+      <div class="container">
+        <a href="JavaScript: location.reload(true);"><img src="KOSAKOWO_logo_dobre.jpg" alt="Logo Gmina Kosakowo"></a>
+
+        <nav>
+          <ul>
+            <li><a href="#kotwica_zmiana">Zmiana Procentów</a></li>
+            <li><a href="#kotwica_budzet">Budżet Gminy</a></li>
+            <li><a href="#kotwica_wydatki">Wydatki Gminy</a></li>
+            <li><a href="#kotwica_kalkulator">Kalkulator</a></li>
+            <li><a href="#kotwica_wykresy">Wykresy</a></li>
+           </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+        <div class="zdjecie">
+            <img src="Mechelinki.jpg" alt="Zdjęcie Mechelinek">
+            <div class="txt_zdjecie">Gmina<br>Kosakowo</div>
+        </div>
+        
+        <div class="zmiana_koloru_minusowa"></div>
+        <div class="budzet_gminy">
+            <div class="txt_budzet_napis">Budżet Gminy Kosakowo</div>
+            <div class="wybor_roku">
+                <a name="kotwica_budzet">
+                    <select id="rok_budzet" onchange="zmiana_roku()">
+                    <?php
+                        $conn = mysqli_connect("localhost", "dapjrknbde_aplikacja","Cyi4-n2[uWE!-+4R", "dapjrknbde_aplikacja");
+                        if($conn-> connect_error){
+                            die("Connection failed: ".$conn-> connect_error);
+                        }
+
+                        $sql= "SELECT DISTINCT wyd_kolumny.rok FROM `wyd_dzialy`,`wyd_kolumny`,`wyd_gminy` WHERE wyd_gminy.id=1;";
+                        $result = $conn-> query($sql);
+            
+
+                        if ($result-> num_rows > 0){
+                
+                            while ($row = mysqli_fetch_row($result)) {
+                            echo <<<CMT
+                                <option value='$row[0]'>$row[0]</option>
+                            CMT;
+                            }   
+                        }
+                        
+                        else{
+                            echo "0 result";
+                        }
+                        $conn-> close();
+                    ?>
+
+                    </select>
+                </a>
+                <?php
+                    $conn = mysqli_connect("localhost", "dapjrknbde_aplikacja","Cyi4-n2[uWE!-+4R", "dapjrknbde_aplikacja");
+                    if($conn-> connect_error){
+                        die("Connection failed: ".$conn-> connect_error);
+                    }
+
+                    $sql= "SELECT rok,SUM(plan) AS suma FROM `wpl_dzialy`,`wpl_kolumny`,`wyd_gminy` WHERE id_typ=0 AND wyd_gminy.id=1 AND rok=2021;";
+                    $result = $conn-> query($sql);
+        
+
+                    if ($result-> num_rows > 0){
+            
+                        while ($row = mysqli_fetch_row($result)) {
+                        echo <<<CMT
+                            <div id='budzet_$row[0]' class='budzet'><input type='text' id='budzet_gminy_21' value="$row[1]" min='0' step='0.01' readonly></div>
+                        CMT;
+                        }   
+                    }
+                    
+                    else{
+                        echo "0 result";
+                    }
+                    $conn-> close();
+                ?>
+                <?php
+                    $conn = mysqli_connect("localhost", "dapjrknbde_aplikacja","Cyi4-n2[uWE!-+4R", "dapjrknbde_aplikacja");
+                    if($conn-> connect_error){
+                        die("Connection failed: ".$conn-> connect_error);
+                    }
+
+                    $sql= "SELECT rok,SUM(plan) AS suma FROM `wpl_dzialy`,`wpl_kolumny`,`wyd_gminy` WHERE id_typ=0 AND wyd_gminy.id=1 AND rok=2020;";
+                    $result = $conn-> query($sql);
+        
+
+                    if ($result-> num_rows > 0){
+            
+                        while ($row = mysqli_fetch_row($result)) {
+                        echo <<<CMT
+                            <div id='budzet_$row[0]' class='budzet'><input type='text' id='budzet_gminy_20' value="$row[1]" min='0' step='0.01' readonly></div>
+                        CMT;
+                        }   
+                    }
+                    
+                    else{
+                        echo "0 result";
+                    }
+                    $conn-> close();
+                ?>
+                <?php
+                    $conn = mysqli_connect("localhost", "dapjrknbde_aplikacja","Cyi4-n2[uWE!-+4R", "dapjrknbde_aplikacja");
+                    if($conn-> connect_error){
+                        die("Connection failed: ".$conn-> connect_error);
+                    }
+
+                    $sql= "SELECT rok,SUM(plan) AS suma FROM `wpl_dzialy`,`wpl_kolumny`,`wyd_gminy` WHERE id_typ=0 AND wyd_gminy.id=1 AND rok=2022;";
+                    $result = $conn-> query($sql);
+        
+
+                    if ($result-> num_rows > 0){
+            
+                        while ($row = mysqli_fetch_row($result)) {
+                        echo <<<CMT
+                            <div id='budzet_$row[0]' style="display:none;" class='budzet'><input type='text' id='budzet_gminy_19' value="$row[1]" min='0' step='0.01' readonly></div>
+                        CMT;
+                        }   
+                    }
+                    
+                    else{
+                        echo "0 result";
+                    }
+                    $conn-> close();
+                ?>
+                <script type="text/javascript">
+                    const price = 1470000.15;
+                    let dollarUSLocale = Intl.NumberFormat('en-US',{
+                        maximumSignificantDigits: 2,
+                    });
+                    console.log("US Locale output: " + dollarUSLocale.format(price));
+                    document.getElementById("budzet_gminy_19").value=dollarUSLocale.format(parseInt(document.getElementById("budzet_gminy_19").value));
+                    document.getElementById("budzet_gminy_21").value=dollarUSLocale.format(parseInt(document.getElementById("budzet_gminy_21").value));
+                    document.getElementById("budzet_gminy_20").value=dollarUSLocale.format(parseInt(document.getElementById("budzet_gminy_20").value));
+                </script>
+            </div>
+        </div>
+        <div class="zmiana_koloru"></div>
+        <div class="wydatki_gminy">
+          <div class="txt_wydatki"><a name="kotwica_wydatki"><h1>Wydatki z Budżetu Gminy</h1></a></div>
+          <table>
+            <tr>
+                <td><div class="szkolnictwo_wyzsze"><input type="image" src="szkolnictwo_wyzsze_i_nauka.png" id="szkolnictwo_zdj" onClick="sprawdzanie_zdj(this.alt)" alt="Szkolnictwo wyższe i nauka" style="display: block;">
+                      <div class="szkolnictwo_wyzsze_plus">
+                        <h3>Szkolnictwo wyższe i nauka</h3>
+                        <i></i>
+                      </div>
+                    </div>
+                </td>
+                <td><div class="urzedy_naczelnych"><input type="image" src="urzedy_naczelnych_organow.png" id="urzedy_naczelnych_zdj" alt="Urzędy naczelnych organów władzy państwowej, kontroli i ochrony prawa oraz sądownictwa" style="display: block;" onClick="sprawdzanie_zdj(this.alt)">
+                        <div class="urzedy_naczelnych_plus">
+                            <h3>Urzędy naczelnych organów</h3>
+                            <i></i>
+                        </div>    
+                    </div>
+                </td>
+                <td><div class="lesnictwo"><input type="image" src="lesnictwo.png" id="lesnictwo_zdj" alt="Rybołówstwo i rybactwo" style="display: block;" onClick="sprawdzanie_zdj(this.alt)">
+                        <div class="lesnictwo_plus">
+                            <h3>Rybołówstwo i rybactwo</h3>
+                            <i></i>
+                        </div>
+                    </div>  
+                </td>
+                <td><div class="rolnictwo"><input type="image" src="rolnictwo_i_lowiectwo.png" alt="Rolnictwo i łowiectwo" id="rolnictwo_zdj" style="display: block;" onClick="sprawdzanie_zdj(this.alt)">
+                        <div class="rolnictwo_plus">
+                            <h3>Rolnictwo i Łowiectwo</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+
+                <td><div class="wymiar_sprawiedliwosci"><input type="image" src="wymiar_sprawiedliwosci.png" id="wymiar_sprawiedliwosci_zdj" alt="Urzędy naczelnych organów władzy państwowej, kontroli i ochrony prawa oraz sądownictwa" style="display: block;" onClick="sprawdzanie_zdj(this.alt)">
+                        <div class="wymiar_sprawiedliwosci_plus">
+                            <h3>Wymiar Sprawiedliwości</h3>
+                            <i></i>
+                       </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><div class="gospodarka_mieszkaniowa"><input type="image" src="gospodarka_mieszkaniowa.png" alt="Gospodarka mieszkaniowa" onClick="sprawdzanie_zdj(this.alt)" id="mieszkaniowa_zdj">
+                        <div class="gospodarka_mieszkaniowa_plus">
+                            <h3>Gospodarka Mieszkaniowa</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+                <td><div class="pozostale_zadania"><input type="image" src="pozostale_zadania.png" alt="Pozostałe zadania w zakresie polityki społecznej" onClick="sprawdzanie_zdj(this.alt)" id="pozostale_zdj">
+                        <div class="pozostale_zadania_plus">
+                            <h3>Pozostałe zadania</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+                <td><div class="administracja_publiczna"><input type="image" src="administracja_publiczna.png" alt="Administracja publiczna" onClick="sprawdzanie_zdj(this.alt)" id="publiczna_zdj">
+                        <div class="administracja_publiczna_plus">
+                            <h3>Administracja publiczna</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+                <td><div class="bezpieczenstwo_i_straz"><input id="bezpieczenstwo_i_straz_zdj" type="image" src="bezpieczenstwo_publiczne_straz_pozarna.png" alt="Bezpieczeństwo publiczne i ochrona przeciwpożarowa" style="display: block;" onClick="sprawdzanie_zdj(this.alt)">
+                        <div class="bezpieczenstwo_i_straz_plus">
+                            <h3>Bezpieczeństwo publiczne i straż pożarna</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+                <td><div class="dzialalnosc_uslugowa"><input type="image" id="dzialalnosc_uslugowa_zdj" src="dzialalnosc_uslugowa.png" alt="Działalność usługowa" style="display: block;" onClick="sprawdzanie_zdj(this.alt)">
+                        <div class="dzialalnosc_uslugowa_plus">
+                            <h3>Działalność usługowa</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><div class="komunalna"><input type="image" src="gospodarka_komunalna_i_ochrona_srodowiska.png" alt="Gospodarka komunalna i ochrona środowiska" onClick="sprawdzanie_zdj(this.alt)" id="gospodarka_zdj">
+                        <div class="komunalna_plus">
+                            <h3>Gospodarka komunalna i ochrona środowiska</h3>
+                            <i></i>
+                        </div>
+                    </div>  
+                </td>
+                <td><div class="transport"><input type="image" src="transport_i_lacznosc.png" alt="Transport i łączność" onClick="sprawdzanie_zdj(this.alt)" id="transport_zdj">
+                        <div class="transport_plus">
+                            <h3>Transport i łączność</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+                <td><div class="pomoc_spoleczna"><input type="image" src="pomoc_spoleczna.png" alt="Pomoc społeczna" onClick="sprawdzanie_zdj(this.alt)" id="pomoc_zdj">
+                        <div class="pomoc_spoleczna_plus">
+                            <h3>Pomoc Społeczna</h3>
+                            <i></i>
+                        </div>
+                    </div>  
+                </td>
+                <td><div class="edukacja_opieka_wychowawcza"><input type="image" id="edukacja_opieka_wychowawcza_zdj" src="edukacja_opieka_wychowawcza.png" alt="Edukacyjna opieka wychowawcza" style="display: block;" onClick="sprawdzanie_zdj(this.alt)">
+                            <div class="edukacja_opieka_wychowawcza_plus">
+                                <h3>Edukacja, opieka wychowawcza</h3>
+                                <i></i>
+                            </div>
+                    </div>
+                </td>
+                <td><div class="obsluga_dlugu_publicznego"><input type="image" id="obsluga_dlugu_publicznego_zdj" src="obsluga_dlugu_publicznego.png" alt="Obsługa długu publicznego" style="display: block;" onClick="sprawdzanie_zdj(this.alt)">
+                        <div class="obsluga_dlugu_publicznego_plus">
+                            <h3>Obsługa długu publicznego</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><div class="oswiata_wychowanie"><input type="image" src="oswiata_i_wychowanie.png" alt="Oświata i wychowanie" onClick="sprawdzanie_zdj(this.alt)" id="oswiata_zdj">
+                        <div class="oswiata_wychowanie_plus">
+                            <h3>Oświata i wychowanie</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+                <td><div class="kultura_fizyczna"><input type="image" src="kultura_fizyczna.png" alt="Kultura fizyczna" style="display: block;" id="kultura_fizyczna_zdj" onClick="sprawdzanie_zdj(this.alt)">
+                        <div class="kultura_fizyczna_plus">
+                            <h3>Kultura Fizyczna</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+                <td><div class="kultura_i_dziedzictwo"><input type="image" id="kultura_i_dziedzictwo_zdj" src="kultura_i_ochrona_dziedzistwa_narodowego.png" alt="Kultura i ochrona dziedzictwa narodowego" style="display: block;" onClick="sprawdzanie_zdj(this.alt)">
+                        <div class="kultura_i_dziedzictwo_plus">
+                            <h3>Kultura i Ochrona dziedzictwa narodowego</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+                <td><div class="rozne_rozliczenia"><input type="image" src="rozne_rozliczenia.png" id="rozne_rozliczenia_zdj" alt="Różne rozliczenia" style="display: block;" onClick="sprawdzanie_zdj(this.alt)">
+                        <div class="rozne_rozliczenia_plus">
+                            <h3>Różne Rozliczenia</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+                <td><div class="rodzina_"><input id="rodzina_zdj" type="image" src="rodzina.png" alt="Rodzina" style="display: block;" onClick="sprawdzanie_zdj(this.alt)">
+                        <div class="rodzina_plus">
+                            <h3>Rodzina</h3>
+                            <i></i>
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td><div class="ochrona_zdrowia"><input type="image" id="ochrona_zdrowia_zdj" src="ochrona_zdrowia.png" alt="Ochrona zdrowia" style="display: block;" onClick="sprawdzanie_zdj(this.alt)">
+                        <div class="ochrona_zdrowia_plus">
+                            <h3>Ochrona zdrowia</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+                <td><div class="turystyka_"><input id="turystyka_zdj" type="image" src="turystyka.png" alt="Turystyka" style="display: block;" onClick="sprawdzanie_zdj(this.alt)">
+                        <div class="turystyka_plus">
+                            <h3>Turystyka</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+                <td><div class="energia"><input type="image" id="energia_zdj" src="energia_energetyczna_gaz_i_woda.png" alt="Energia energetyczna, gaz i woda" style="display: none;" onClick="sprawdzanie_zdj(this.alt)">
+                        <div class="energia_plus">
+                            <h3>Energia energetyczna, gaz i woda</h3>
+                            <i></i>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+          </table>
+          <div id="columnchart_values" style="position: absolute;left: 30em;top: 12em; width: 900px; height: 300px;"></div>
+          <?php
+                $conn = mysqli_connect("localhost", "dapjrknbde_aplikacja","Cyi4-n2[uWE!-+4R", "dapjrknbde_aplikacja");
+
+                $sql= "SELECT @zmienna_rok:=rok,rok,wyd_kolumny.id,dzial_id,nazwa, plan,((plan/(SELECT SUM(plan) FROM dapjrknbde_aplikacja.wyd_kolumny WHERE typ_id=0 AND gmina_id=1 AND rok=@zmienna_rok)) *100) AS Percentage FROM dapjrknbde_aplikacja.wyd_kolumny, dapjrknbde_aplikacja.wyd_dzialy WHERE typ_id=0 AND gmina_id=1 AND wyd_dzialy.id=dzial_id;";
+                                        
+                $result = mysqli_query($conn, $sql);
+                                                
+
+                if ($result-> num_rows > 0){
+                                                    
+                    while ($row = mysqli_fetch_row($result)) {
+                    echo <<<CMT
+                        <table id='tabela_$row[2]_$row[1]' class="$row[4]_$row[1]" style="display: none;">
+                            <tr>
+                                <th>$row[4]</th>
+                            </tr>
+                            <tr>
+                                <td style="display: none;">$row[3]</td>
+                            </tr> 
+                            <tr>
+                                <td>Procent: </td><td id="$row[4]_$row[1]">$row[6]</td><td>%</td>
+                            </tr> 
+                            <tr>
+                                <td>Cena: </td><td>$row[5]</td><td>zł</td>
+                            </tr> 
+                            <tr>
+                                <td style="display: none;">$row[1]</td>
+                            </tr>   
+                                                                                                    
+                        </table>
+                    CMT;
+                    }        
+                }
+                                                
+                mysqli_close($conn);                          
+          ?>
+          <table class="podrozdzialy">
+          <?php
+                $conn = mysqli_connect("localhost", "dapjrknbde_aplikacja","Cyi4-n2[uWE!-+4R", "dapjrknbde_aplikacja");
+
+                $sql= "SELECT wyd_kolumny.id,plan,@zmienna:=nalezy_do_dzial_id, (SELECT nazwa FROM wyd_dzialy WHERE @zmienna=id) AS nazwa_nalezy,nalezy_do_dzial_id, wyd_dzialy.nazwa AS nazwa_dzialy,rok FROM dapjrknbde_aplikacja.wyd_kolumny,dapjrknbde_aplikacja.wyd_typy, dapjrknbde_aplikacja.wyd_dzialy WHERE gmina_id=1 AND wyd_dzialy.id=dzial_id AND wyd_dzialy.id_typ= wyd_typy.id AND typ_id=1";
+                                        
+                $result = mysqli_query($conn, $sql);
+                                                
+
+                if ($result-> num_rows > 0){
+                                                    
+                    while ($row = mysqli_fetch_row($result)) {
+                    echo <<<CMT
+                        <tr style="display: none;" id="table_$row[0]_$row[6]" class="$row[2]_$row[6]">
+                            <td class="tekst">$row[5]</td><td>$row[1]</td>
+                        </tr>
+                    CMT;
+                    }        
+                }
+                                                
+                mysqli_close($conn);                          
+          ?>
+          </table>
+          <div id="columnchart_values" style="position:  absolute;left: 30em;top: 20em; width: 900px; height: 300px;"></div>
+          <script type="text/javascript">
+                function czyszczenie_wplaty(){
+                    var uzyto = document.getElementsByClassName("uzyto_wplaty");
+                    for(var i = 0; i < uzyto.length; i++){
+                        uzyto[i].style.display = "none";
+                        uzyto[i].classList.remove("uzyto_wplaty");
+                    }
+                    var uzyto = document.getElementsByClassName("uzyto_wplaty");
+                    for(var i = 0; i < uzyto.length; i++){
+                        uzyto[i].style.display = "none";
+                        uzyto[i].classList.remove("uzyto_wplaty");
+                    }
+                    var uzyto = document.getElementsByClassName("uzyto_wplaty");
+                    for(var i = 0; i < uzyto.length; i++){
+                        uzyto[i].style.display = "none";
+                        uzyto[i].classList.remove("uzyto_wplaty");
+                    }
+                    var uzyto = document.getElementsByClassName("uzyto_wplaty");
+                    for(var i = 0; i < uzyto.length; i++){
+                        uzyto[i].style.display = "none";
+                        uzyto[i].classList.remove("uzyto_wplaty");
+                    }
+                }
+                function zmiana_wplyw(){
+                    rok=+document.getElementById("rok_budzet").value;
+                    var id;
+                    if(document.getElementById("wplaty_select").value=="dzial")
+                    {
+                        //czyszczenie_wplaty();
+                        var wpl_rozdzialy = document.getElementsByClassName("wpl_rozdzialy_"+rok);
+                        for(var i = 0; i < wpl_rozdzialy.length; i++){
+                            id=wpl_rozdzialy[i].id;
+                            console.log(id);
+                            console.log(document.getElementById(id).cells.item(1).innerHTML);
+                            if(document.getElementById(id).cells.item(1).innerHTML==" " || document.getElementById(id).cells.item(1).innerHTML=="" || document.getElementById(id).cells.item(1).innerHTML==null)
+                            {
+                                wpl_rozdzialy[i].style.display = "table-row"; 
+                                //wpl_rozdzialy[i].classList.add("uzyto_wplaty");
+                            }else{
+                                wpl_rozdzialy[i].style.display = "none";
+                            }
+                        }
+                    }else if(document.getElementById("wplaty_select").value=="reszta")
+                    {
+                        //czyszczenie_wplaty();
+                        var wpl_rozdzialy = document.getElementsByClassName("wpl_rozdzialy_"+rok);
+                        for(var i = 0; i < wpl_rozdzialy.length; i++){
+                            id=wpl_rozdzialy[i].id;
+                            console.log(id);
+                            console.log(document.getElementById(id).cells.item(1).innerHTML);
+                            if(document.getElementById(id).cells.item(1).innerHTML!=" " && document.getElementById(id).cells.item(1).innerHTML!="" && document.getElementById(id).cells.item(1).innerHTML!=null)
+                            {
+                                wpl_rozdzialy[i].style.display = "table-row"; 
+                                //wpl_rozdzialy[i].classList.add("uzyto_wplaty");
+                            }else{
+                                wpl_rozdzialy[i].style.display = "none";
+                            }
+                        }
+                    }/*else if(document.getElementById("wplaty_select").value=="reszta"){
+                        var wpl_rozdzialy = document.getElementsByClassName("wpl_rozdzialy_"+rok);
+                        for(var i = 0; i < wpl_rozdzialy.length; i++){
+                            id=wpl_rozdzialy[i].id;
+                            console.log(id);
+                            console.log(document.getElementById(id).cells.item(1).innerHTML);
+                            if(document.getElementById(id).cells.item(4).innerHTML="")
+                            {
+                                wpl_rozdzialy[i].style.display = "table-row"; 
+                                //wpl_rozdzialy[i].classList.add("uzyto_wplaty");
+                            }else{
+                                wpl_rozdzialy[i].style.display = "none";
+                            }
+                        }
+                    }*/
+                    console.log("wpl_dzial_"+rok);
+                        
+                    
+                }
+          </script>
+          <div id="container" style="position: absolute; top: 73em; width: 100%;"></div>
+          <select id="wplaty_select" style="margin-top: 96.5em;" onchange="zmiana_wplyw()">
+              <option value="dzial">dzial</option>
+              <option value="reszta">reszta</option>
+          </select>
+          <table id="tabela_wplaty" style="border: 2px solid black; width: 100%; position: absolute;top: 110em; left:0em;">
+              <tr style="border: 2px solid black;">
+                    <th>Nazwa</th><th>Należy do</th><th>Plan</th><th>Rok</th>
+              </tr>
+                <?
+                    $conn = mysqli_connect("localhost", "dapjrknbde_aplikacja","Cyi4-n2[uWE!-+4R", "dapjrknbde_aplikacja");
+                    if($conn-> connect_error){
+                        die("Connection failed: ".$conn-> connect_error);
+                    }
+
+                    $sql= "SELECT wpl_kolumny.id,plan,@zmienna:=nalezy_do_dzial_id, (SELECT nazwa FROM wpl_dzialy WHERE @zmienna=id) AS nazwa_nalezy,nalezy_do_dzial_id, wpl_dzialy.nazwa AS nazwa_dzialy,rok,typ_id FROM dapjrknbde_aplikacja.wpl_kolumny,dapjrknbde_aplikacja.wpl_typy, dapjrknbde_aplikacja.wpl_dzialy WHERE gmina_id=1 AND wpl_dzialy.id=dzial_id AND wpl_dzialy.id_typ= wpl_typy.id;";
+                    $result = $conn-> query($sql);
+            
+
+                    if ($result-> num_rows > 0){
+                
+                        while ($row = mysqli_fetch_row($result)) {
+                        echo <<<CMT
+                            <tr id="$row[0]" style="width: 100%; border: 2px solid black; display: none;" class="wpl_rozdzialy_$row[6]">
+                                <td style="border: 2px solid black;">$row[5]</td><td style="border: 2px solid black;">$row[3]</td><td style="border: 2px solid black;">$row[1]</td><td style="border: 2px solid black;">$row[6]</td><td style="display: none;">$row[7]</td>
+                            </tr>
+                        CMT;
+                        }   
+                    }
+                        
+                    else{
+                        echo "0 result";
+                    }
+                    $conn-> close();
+                ?>
+          </table>
+        </div>   
+        <script type="text/javascript">
+            google.charts.load("current", {packages:['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() 
+            {
+                if(nazwa_tabela.length==1){
+                    var data = google.visualization.arrayToDataTable([
+                        ["Nazwa", "Wartość"],
+                        [nazwa_tabela[0], parseInt(liczba_tabela[0])]
+                    ]);    
+                }else if(nazwa_tabela.length==2){
+                    var data = google.visualization.arrayToDataTable([
+                        ["Nazwa", "Wartość"],
+                        [nazwa_tabela[0], parseInt(liczba_tabela[0])],
+                        [nazwa_tabela[1], parseInt(liczba_tabela[1])]
+                    ]);
+                }else if(nazwa_tabela.length==3){
+                    var data = google.visualization.arrayToDataTable([
+                        ["Nazwa", "Wartość"],
+                        [nazwa_tabela[0], parseInt(liczba_tabela[0])],
+                        [nazwa_tabela[1], parseInt(liczba_tabela[1])],
+                        [nazwa_tabela[2], parseInt(liczba_tabela[2])]
+                    ]); 
+                }else if(nazwa_tabela.length==4){
+                    var data = google.visualization.arrayToDataTable([
+                        ["Nazwa", "Wartość"],
+                        [nazwa_tabela[0], parseInt(liczba_tabela[0])],
+                        [nazwa_tabela[1], parseInt(liczba_tabela[1])],
+                        [nazwa_tabela[2], parseInt(liczba_tabela[2])],
+                        [nazwa_tabela[3], parseInt(liczba_tabela[3])]
+                    ]); 
+
+                }else if(nazwa_tabela.length==5){
+                    var data = google.visualization.arrayToDataTable([
+                        ["Nazwa", "Wartość"],
+                        [nazwa_tabela[0], parseInt(liczba_tabela[0])],
+                        [nazwa_tabela[1], parseInt(liczba_tabela[1])],
+                        [nazwa_tabela[2], parseInt(liczba_tabela[2])],
+                        [nazwa_tabela[3], parseInt(liczba_tabela[3])],
+                        [nazwa_tabela[4], parseInt(liczba_tabela[4])]
+                    ]);
+                }else if(nazwa_tabela.length==6){
+                    var data = google.visualization.arrayToDataTable([
+                        ["Nazwa", "Wartość"],
+                        [nazwa_tabela[0], parseInt(liczba_tabela[0])],
+                        [nazwa_tabela[1], parseInt(liczba_tabela[1])],
+                        [nazwa_tabela[2], parseInt(liczba_tabela[2])],
+                        [nazwa_tabela[3], parseInt(liczba_tabela[3])],
+                        [nazwa_tabela[4], parseInt(liczba_tabela[4])],
+                        [nazwa_tabela[5], parseInt(liczba_tabela[5])]
+                    ]); 
+                }else if(nazwa_tabela.length==7){
+                    var data = google.visualization.arrayToDataTable([
+                        ["Nazwa", "Wartość"],
+                        [nazwa_tabela[0], parseInt(liczba_tabela[0])],
+                        [nazwa_tabela[1], parseInt(liczba_tabela[1])],
+                        [nazwa_tabela[2], parseInt(liczba_tabela[2])],
+                        [nazwa_tabela[3], parseInt(liczba_tabela[3])],
+                        [nazwa_tabela[4], parseInt(liczba_tabela[4])],
+                        [nazwa_tabela[5], parseInt(liczba_tabela[5])],
+                        [nazwa_tabela[6], parseInt(liczba_tabela[6])]
+                    ]); 
+                }else if(nazwa_tabela.length==8){
+                    var data = google.visualization.arrayToDataTable([
+                        ["Nazwa", "Wartość"],
+                        [nazwa_tabela[0], parseInt(liczba_tabela[0])],
+                        [nazwa_tabela[1], parseInt(liczba_tabela[1])],
+                        [nazwa_tabela[2], parseInt(liczba_tabela[2])],
+                        [nazwa_tabela[3], parseInt(liczba_tabela[3])],
+                        [nazwa_tabela[4], parseInt(liczba_tabela[4])],
+                        [nazwa_tabela[5], parseInt(liczba_tabela[5])],
+                        [nazwa_tabela[6], parseInt(liczba_tabela[6])],
+                        [nazwa_tabela[7], parseInt(liczba_tabela[7])]
+                    ]); 
+                }else if(nazwa_tabela.length==9){
+                    var data = google.visualization.arrayToDataTable([
+                        ["Nazwa", "Wartość"],
+                        [nazwa_tabela[0], parseInt(liczba_tabela[0])],
+                        [nazwa_tabela[1], parseInt(liczba_tabela[1])],
+                        [nazwa_tabela[2], parseInt(liczba_tabela[2])],
+                        [nazwa_tabela[3], parseInt(liczba_tabela[3])],
+                        [nazwa_tabela[4], parseInt(liczba_tabela[4])],
+                        [nazwa_tabela[5], parseInt(liczba_tabela[5])],
+                        [nazwa_tabela[6], parseInt(liczba_tabela[6])],
+                        [nazwa_tabela[7], parseInt(liczba_tabela[7])],
+                        [nazwa_tabela[8], parseInt(liczba_tabela[8])]
+                    ]); 
+                }else if(nazwa_tabela.length==10){
+                    var data = google.visualization.arrayToDataTable([
+                        ["Nazwa", "Wartość"],
+                        [nazwa_tabela[0], parseInt(liczba_tabela[0])],
+                        [nazwa_tabela[1], parseInt(liczba_tabela[1])],
+                        [nazwa_tabela[2], parseInt(liczba_tabela[2])],
+                        [nazwa_tabela[3], parseInt(liczba_tabela[3])],
+                        [nazwa_tabela[4], parseInt(liczba_tabela[4])],
+                        [nazwa_tabela[5], parseInt(liczba_tabela[5])],
+                        [nazwa_tabela[6], parseInt(liczba_tabela[6])],
+                        [nazwa_tabela[7], parseInt(liczba_tabela[7])],
+                        [nazwa_tabela[8], parseInt(liczba_tabela[8])],
+                        [nazwa_tabela[9], parseInt(liczba_tabela[9])]
+                    ]); 
+                }else if(nazwa_tabela.length==11){
+                    var data = google.visualization.arrayToDataTable([
+                        ["Nazwa", "Wartość"],
+                        [nazwa_tabela[0], parseInt(liczba_tabela[0])],
+                        [nazwa_tabela[1], parseInt(liczba_tabela[1])],
+                        [nazwa_tabela[2], parseInt(liczba_tabela[2])],
+                        [nazwa_tabela[3], parseInt(liczba_tabela[3])],
+                        [nazwa_tabela[4], parseInt(liczba_tabela[4])],
+                        [nazwa_tabela[5], parseInt(liczba_tabela[5])],
+                        [nazwa_tabela[6], parseInt(liczba_tabela[6])],
+                        [nazwa_tabela[7], parseInt(liczba_tabela[7])],
+                        [nazwa_tabela[8], parseInt(liczba_tabela[8])],
+                        [nazwa_tabela[9], parseInt(liczba_tabela[9])],
+                        [nazwa_tabela[10], parseInt(liczba_tabela[10])]
+                    ]); 
+                }else if(nazwa_tabela.length==12){
+                    var data = google.visualization.arrayToDataTable([
+                        ["Nazwa", "Wartość"],
+                        [nazwa_tabela[0], parseInt(liczba_tabela[0])],
+                        [nazwa_tabela[1], parseInt(liczba_tabela[1])],
+                        [nazwa_tabela[2], parseInt(liczba_tabela[2])],
+                        [nazwa_tabela[3], parseInt(liczba_tabela[3])],
+                        [nazwa_tabela[4], parseInt(liczba_tabela[4])],
+                        [nazwa_tabela[5], parseInt(liczba_tabela[5])],
+                        [nazwa_tabela[6], parseInt(liczba_tabela[6])],
+                        [nazwa_tabela[7], parseInt(liczba_tabela[7])],
+                        [nazwa_tabela[8], parseInt(liczba_tabela[8])],
+                        [nazwa_tabela[9], parseInt(liczba_tabela[9])],
+                        [nazwa_tabela[10], parseInt(liczba_tabela[10])],
+                        [nazwa_tabela[11], parseInt(liczba_tabela[11])]
+                    ]); 
+                }
+            
+            
+
+            
+
+              var view = new google.visualization.DataView(data);
+
+              var options = {
+                title: "Density of Precious Metals, in g/cm^3",
+                width: 1000,
+                height: 500,
+                bar: {groupWidth: "95%"},
+                legend: { position: "none" },
+              };
+              var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+              chart.draw(view, options);
+            }
+        </script>
+        <script type="text/javascript">
+            const nazwa_tabela=[];
+            const liczba_tabela=[];
+            var z=0;
+            function czyszczenie(){
+                var uzyto_podrozdzialy = document.getElementsByClassName("uzyto_podrozdzialy");
+                for(var i = 0; i < uzyto_podrozdzialy.length; i++){
+                    uzyto_podrozdzialy[i].style.display = "none"; 
+                    uzyto_podrozdzialy[i].classList.remove("uzyto_podrozdzialy");
+                }
+                var uzyto_podrozdzialy = document.getElementsByClassName("uzyto_podrozdzialy");
+                for(var i = 0; i < uzyto_podrozdzialy.length; i++){
+                    uzyto_podrozdzialy[i].style.display = "none"; 
+                    uzyto_podrozdzialy[i].classList.remove("uzyto_podrozdzialy");
+                }
+                var uzyto_podrozdzialy = document.getElementsByClassName("uzyto_podrozdzialy");
+                for(var i = 0; i < uzyto_podrozdzialy.length; i++){
+                    uzyto_podrozdzialy[i].style.display = "none"; 
+                    uzyto_podrozdzialy[i].classList.remove("uzyto_podrozdzialy");
+                }
+            }
+            function sprawdzanie_zdj(alternatywny_tekst){
+                nazwa_tabela.splice(0,nazwa_tabela.length);
+                liczba_tabela.splice(0,liczba_tabela.length);
+                z=0;
+                var rok="0";
+                rok="_"+document.getElementById("rok_budzet").value;
+                var zmienna_id;
+                var uzyto_rozdzialy = document.getElementsByClassName("uzyto_rozdzialy");
+                for(var i = 0; i < uzyto_rozdzialy.length; i++){
+                    uzyto_rozdzialy[i].style.display = "none"; 
+                    uzyto_rozdzialy[i].classList.remove("uzyto_rozdzialy");
+                }
+                var rozdzialy = document.getElementsByClassName(alternatywny_tekst+rok); //divsToHide is an array
+                for(var i = 0; i < rozdzialy.length; i++){
+                    rozdzialy[i].style.display = "block";
+                    rozdzialy[i].classList.add("uzyto_rozdzialy");
+                    rozdzialy[i].classList.add("tabela_zdjecia");
+                    zmienna_id=rozdzialy[i].id;
+                    console.log(rozdzialy[i].id);
+                }
+                czyszczenie();
+                console.log(zmienna_id);  
+                console.log(document.getElementsByClassName(document.getElementById(zmienna_id).rows[1].cells.item(0).innerHTML));
+                var podrozdzialy = document.getElementsByClassName(document.getElementById(zmienna_id).rows[1].cells.item(0).innerHTML+rok); //divsToHide is an array
+                for(var i = 0; i < podrozdzialy.length; i++){
+                    podrozdzialy[i].style.display = "block";
+                    nazwa_tabela[z]=podrozdzialy[i].cells.item(0).innerHTML;
+                    liczba_tabela[z]=podrozdzialy[i].cells.item(1).innerHTML;
+                    z++;
+                    podrozdzialy[i].classList.add("uzyto_podrozdzialy");
+                }
+                console.log(rok);
+                console.log(nazwa_tabela);
+                console.log(liczba_tabela);
+                drawChart();
+            }
+        </script>
+        <div class="zmiana_koloru_dwa"></div>
+        <script type="text/javascript">
+            const nazwy = [];
+            const wartosci = [];
+            rok=+document.getElementById("rok_budzet").value;
+            var chart = document.getElementsByTagName('table');
+            var i=0;
+            for( i = 0; i < chart.length; i++){
+                if(chart[i].rows[4].cells.item(0).innerHTML==rok)
+                {
+                    nazwy.push(chart[i].rows[0].cells.item(0).innerHTML); 
+                    wartosci.push(parseInt(chart[i].rows[3].cells.item(1).innerHTML));
+                }
+                
+                            
+            }
+            console.log(wartosci);
+            console.log(nazwy);
+            var pie = new ej.charts.AccumulationChart({
+            //Initializing Series
+            series: [
+                {
+                    tooltip: { enable: true, header: 'Browser', format: '${point.x}:<b> ${point.y}%<b>' },
+                    dataSource: [
+                          //{ 'x': 'Chrome', y: 37 }, { 'x': 'UC Browser', y: 17 },
+                          {'x': nazwy[0], y: parseInt(wartosci[0])},
+                          {'x': nazwy[1], y: parseInt(wartosci[1])},
+                          {'x': nazwy[2], y: parseInt(wartosci[2])},
+                          {'x': nazwy[3], y: parseInt(wartosci[3])},
+                          {'x': nazwy[4], y: parseInt(wartosci[4])},
+                          {'x': nazwy[5], y: parseInt(wartosci[5])},
+                          {'x': nazwy[6], y: parseInt(wartosci[6])},
+                          {'x': nazwy[7], y: parseInt(wartosci[7])},
+                          {'x': nazwy[8], y: parseInt(wartosci[8])},
+                          {'x': nazwy[9], y: parseInt(wartosci[9])},
+                          {'x': nazwy[10], y: parseInt(wartosci[10])},
+                          {'x': nazwy[11], y: parseInt(wartosci[11])},
+                          {'x': nazwy[12], y: parseInt(wartosci[12])},
+                          {'x': nazwy[13], y: parseInt(wartosci[13])},
+                          {'x': nazwy[14], y: parseInt(wartosci[14])},
+                          {'x': nazwy[15], y: parseInt(wartosci[15])},
+                          {'x': nazwy[16], y: parseInt(wartosci[16])},
+                          {'x': nazwy[17], y: parseInt(wartosci[17])},
+                          {'x': nazwy[18], y: parseInt(wartosci[18])},
+                          {'x': nazwy[19], y: parseInt(wartosci[19])},
+                          {'x': nazwy[20], y: parseInt(wartosci[20])},
+                          {'x': nazwy[21], y: parseInt(wartosci[21])},
+                    ],
+                    dataLabel: {
+                        visible: true,
+                        position: 'Outside',
+                    },
+                    xName: 'x',
+                    yName: 'y'
+                }
+            ],
+        });
+        pie.appendTo('#container');
+        </script>
+        <div class="div_kalkulator">
+            <div class="txt_kalkulator"><a name="kotwica_kalkulator">Miesięczny podatek zasilający budżet gminy:<input id="suma_kalkulator" readonly></a></div>
+            <div id="kalkulator">
+            
+              
+
+              <form name="formularz">
+
+                <p>Kalkulator</p>
+
+                <input onkeyup="pomnoz()" type="text" size="10" id="textview" name="textview"><br>
+
+              </form>
+
+
+              <table>
+
+
+
+                <tr>
+
+                    <td><input onkeyup="pomnoz()" class="button" type="button" value="7" onclick="insert(7)"></td>
+                    <td><input onkeyup="pomnoz()" class="button" type="button" value="8" onclick="insert(8)"></td>
+                    <td><input onkeyup="pomnoz()" class="button" type="button" value="9" onclick="insert(9)"></td>
+
+                </tr>
+
+                <tr>
+
+                    <td><input onkeyup="pomnoz()" class="button" type="button" value="4" onclick="insert(4)"></td>
+                    <td><input onkeyup="pomnoz()" class="button" type="button" value="5" onclick="insert(5)"></td>
+                    <td><input onkeyup="pomnoz()" class="button" type="button" value="6" onclick="insert(6)"></td>
+
+                </tr>
+
+                <tr>
+
+                    <td><input onkeyup="pomnoz()" class="button" type="button" value="1" onclick="insert(1)"></td>
+                    <td><input onkeyup="pomnoz()" class="button" type="button" value="2" onclick="insert(2)"></td>
+                    <td><input onkeyup="pomnoz()" class="button" type="button" value="3" onclick="insert(3)"></td>
+
+                </tr>
+
+                <tr>
+
+                    <td colspan=0><input onkeyup="pomnoz()" class="button" type="button" value="0" onclick="insert(0)"></td>
+                    <td><input class="button" type="button" value="C" onclick="clean()"></td>
+
+                </tr>
+
+              </table>
+            </div>
+            <div class="img_wydatki">
+                <select style=" top: 20em;"id="kalkulator_wydatki" onchange="zmiana_roku_kalkulator()">
+
+                    <?php
+                        $conn = mysqli_connect("localhost", "dapjrknbde_aplikacja","Cyi4-n2[uWE!-+4R", "dapjrknbde_aplikacja");
+                        if($conn-> connect_error){
+                            die("Connection failed: ".$conn-> connect_error);
+                        }
+
+                        $sql= "SELECT DISTINCT wyd_kolumny.rok FROM `wyd_dzialy`,`wyd_kolumny`,`wyd_gminy` WHERE wyd_gminy.id=1;";
+                        $result = $conn-> query($sql);
+            
+
+                        if ($result-> num_rows > 0){
+                
+                            while ($row = mysqli_fetch_row($result)) {
+                            echo <<<CMT
+                                <option value='$row[0]'>$row[0]</option>
+                            CMT;
+                            }   
+                        }
+                        
+                        else{
+                            echo "0 result";
+                        }
+                        $conn-> close();
+                    ?>
+                </select>
+                <table style="position: absolute; float: right; top: 45em; left: -30em;">
+                    <tr>
+                        <td><img src="szkolnictwo_wyzsze_i_nauka_biale.png" alt="szkolnictwo wyzsze i nauka" style="display: block;"></td>
+                        <td class="kalkulator_txt">Szkolnictwo: 
+                            <input type="text" class="input_txt" id="szkolnictwo">
+                        </td>
+                        <td><img src="urzedy_naczelnych_organow_biale.png" alt="Urzędy naczelnych organów" style="display: block;"></td>
+                        <td class="kalkulator_txt">Urzędy: 
+                            <input type="text" class="input_txt" id="urzedy_naczelnych">
+                        </td>
+                        <td><img src="lesnictwo_biale.png" alt="Rybołówstwo i rybactwo" style="display: block;"></td>
+                        <td class="kalkulator_txt">Leśnictwo: 
+                            <input type="text" class="input_txt" id="lescnictwo">
+                        </td>
+                        <td><img src="rolnictwo_i_lowiectwo_biale.png" alt="Rolnictwo i Łowiestwo" style="display: block;"></td>
+                        <td class="kalkulator_txt">Rolnictwo: 
+                            <input type="text" class="input_txt" id="rolnictwo">
+                        </td>
+                        <td><img src="wymiar_sprawiedliwosci_biale.png" alt="Wymiar sprawiedliwosci" style="display: block;"></td>
+                        <td class="kalkulator_txt">Wymiar Sprawiedliwości: 
+                            <input type="text" class="input_txt" id="sprawiedliwosci">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="gospodarka_mieszkaniowa_biale.png" alt="Gospodarka mieszkaniowa"></td>
+                        <td class="kalkulator_txt">Mieszkaniowa: 
+                            <input type="text" class="input_txt" id="mieszkaniowa">
+                        </td>
+                        <td><img src="pozostale_zadania_biale.png" alt="Pozostałe zadania"></td>
+                        <td class="kalkulator_txt">Pozostałe: 
+                            <input type="text" class="input_txt" id="pozostale">
+                        </td>
+                        <td><img src="administracja_publiczna_biale.png" alt="Administracja publiczna"></td>
+                        <td class="kalkulator_txt">Administracja: 
+                            <input type="text" class="input_txt" id="administracja">
+                        </td>
+                        <td><img src="bezpieczenstwo_publiczne_straz_pozarna_biale.png" alt="Bezpieczeństwo publiczne i straż pożarna" style="display: block;"></td>
+                        <td class="kalkulator_txt">Bezpieczeństwo: 
+                            <input type="text" class="input_txt" id="bezpieczenstwo">
+                        </td>
+                        <td><img src="dzialalnosc_uslugowa_biale.png" alt="Działalność Usługowa" style="display: block;"></td>
+                        <td class="kalkulator_txt">Usługowa: 
+                            <input type="text" class="input_txt" id="uslugowa">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="gospodarka_komunalna_i_ochrona_srodowiska_biale.png" alt="Gospodarka komunalna i ochrona środowiska"></td>
+                        <td class="kalkulator_txt">Komunalna: 
+                            <input type="text" class="input_txt" id="komunalna">
+                        </td>
+                        <td><img src="transport_i_lacznosc_biale.png" alt="Transport i łączność"></td>
+                        <td class="kalkulator_txt">Transport: 
+                            <input type="text" class="input_txt" id="transport">
+                        </td>
+                        <td><img src="pomoc_spoleczna_biale.png" alt="Pomoc Społeczna"></td>
+                        <td class="kalkulator_txt">Pomoc: 
+                            <input type="text" class="input_txt" id="pomoc">
+                        </td>
+                        <td><img src="edukacja_opieka_wychowawcza_biale.png" alt="Edukacja i opieka Wychowawcza" style="display: block;"></td>
+                        <td class="kalkulator_txt">Edukacja: 
+                            <input type="text" class="input_txt" id="edukacja">
+                        </td>
+                        <td><img src="obsluga_dlugu_publicznego_biale.png" alt="Obsługa długu publicznego" style="display: block;"></td>
+                        <td class="kalkulator_txt">Obsługa Długu: 
+                            <input type="text" class="input_txt" id="obsluga_dlugu">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="oswiata_i_wychowanie_biale.png" alt="Oświata i wychowanie"></td>
+                        <td class="kalkulator_txt">Oświata: 
+                            <input type="text" class="input_txt" id="oswiata">
+                        </td>
+                        <td><img src="kultura_fizyczna_biale.png" alt="Kultura Fizyczna" style="display: block;"></td>
+                        <td class="kalkulator_txt">Kultura Fizyczna: 
+                            <input type="text" class="input_txt" id="kultura_fizyczna">
+                        </td>
+                        <td><img src="kultura_i_ochrona_dziedzistwa_narodowego_biale.png" alt="Kultura i ochrona dziedzictwa Narodowego" style="display: block;"></td>
+                        <td class="kalkulator_txt">Kultura: 
+                            <input type="text" class="input_txt" id="kultura">
+                        </td>
+                        <td><img src="rozne_rozliczenia_biale.png" alt="Różne Rozliczenia" style="display: block;"></td>
+                        <td class="kalkulator_txt">Rozliczenia: 
+                            <input type="text" class="input_txt" id="rozne_rozliczenia">
+                        </td>
+                        <td><img src="rodzina_biale.png" alt="Rodzina" style="display: block;"></td>
+                        <td class="kalkulator_txt">Rodzina: 
+                            <input type="text" class="input_txt" id="rodzina">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="ochrona_zdrowia_biale.png" alt="Ochrona zdrowia" style="display: block;"></td>
+                        <td class="kalkulator_txt">Ochrona Zdrowia: 
+                            <input type="text" class="input_txt" id="ochrona_zdrowia">
+                        </td>
+                        <td><img src="turystyka_biale.png" alt="Turystyka" style="display: block;"></td>
+                        <td class="kalkulator_txt">Turystyka: 
+                            <input type="text" class="input_txt" id="turystyka">
+                        </td>
+                        <td><img src="energia_energetyczna_gaz_i_woda_biale.png" alt="Energia energetyczna, gaz i woda" style="display: none;"></td>
+                        <td class="kalkulator_txt" style="display: none;">Energia: 
+                            <input type="text" class="input_txt" id="energia" style="display: none;">
+                        </td>
+                    </tr>
+                </table>            
+            </div>
+        </div>
+        <div class="zmiana_koloru_trzy">
+        </div>
+        <div class="wykresy">
+            <a name="kotwica_wykresy"><div id="google_data" style="margin: 4%;"><iframe id="datastudio" width="1400" height="1100" style="position: absolute; top: 16em;" src="https://datastudio.google.com/embed/reporting/1becf60a-f006-464e-9323-b65fc490b52f/page/p_o2yeqgkurc" frameborder="5" allowfullscreen></iframe></div></a>
+        </div>
+        <div class="zmiana_koloru_cztery">
+        </div>
+        <div class="stopka">
+            <div class="stopka_txt"><a style="text-decoration: none; color: black;" href="kosakowo2.php" target="_blank">Wyloguj</a></div>
+        </div>
+    </main>
+
+</body>

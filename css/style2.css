@@ -1,0 +1,2021 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+body {
+    display: grid;
+    margin: 0;
+    background: lightskyblue;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background: #fff;
+}
+header image{
+    height: 5em;
+}
+
+header::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.logo {
+    float: left;
+    padding: 10px 0;
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 70px;
+    padding-top: 23px;
+
+    position: relative;
+}
+
+nav a {
+    color: #444;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: lightskyblue;
+}
+
+nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: lightskyblue;
+
+    position: absolute;
+    top: 0;
+    width: 0%;
+
+    transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+main div img {
+    width: 100%;
+    height: 45em;
+}
+.zdjecie {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.txt_zdjecie {
+    position: absolute;
+    top: 0.5em;
+    left: 1em;
+    font-size: 120px;
+    text-align: left;
+}
+.budzet_gminy {
+    background-color: lightskyblue;
+    color: white;
+    position: relative;
+    height: 32em;
+    border: none;
+}
+.txt_budzet_napis {
+    position: absolute;
+    left: 2em;
+    top: 1.5em;
+    height: 5em;
+    width: 2em;
+    font-size: 70px;
+}
+.wybor_roku {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    color: white;
+}
+.wybor_roku select {
+    outline: none;
+    border: none;
+    text-align: left;
+    float: left;
+    background: transparent;
+    font-size: 2rem;
+    color: #fff;
+}
+.wybor_roku select :hover{
+    background: rgba(255, 255, 255, 0.1);
+}
+.wybor_roku select option{
+    background: lightskyblue;
+}
+.budzet {
+    position: absolute;
+    top: 2em;
+    right: 0.1em;
+    font-size: 6rem;
+}
+.wydatki_gminy {    
+    position: relative;
+    background: white;
+    height: 50em;
+    border: none;
+}
+.txt_wydatki {
+    position: absolute;
+    left: 3.5em;
+    text-align: center;
+    font-size: 3rem;
+    color: black;
+}
+.wydatki_gminy img{
+    width: 5em;
+    height: 4em;
+    margin: 20px;
+}
+.wydatki_gminy input{
+    width: 7em;
+    height: 6em;
+    margin: 20px;
+}
+.wydatki_gminy table{
+    position: absolute;
+    top: 17em;
+    left: 4em;
+}
+.txt_nazwa_wydatku{
+    position: absolute;
+    color: black;
+    font-size: 20px;
+    right: 3em;
+    top: 17em;
+}
+.txt_suma_wydatku{
+    position: absolute;
+    font-size: 30px;
+    right: 2em;
+    top: 15em;
+}
+.txt_procenty{
+    position: absolute;
+    font-size: 80px;
+    right: 0.5em;
+    top: 6em;
+    background: rgba(0, 0, 0, 0.0);
+    border: none;
+}
+.zmiana_koloru{
+    background: linear-gradient(to bottom, lightskyblue 0%,white  100%);
+    height: 8em;
+}
+.zmiana_koloru_dwa{
+    background: linear-gradient(to bottom, white 0%,lightskyblue  100%);
+    height: 8em; 
+}
+.div_kalkulator{
+    background: lightskyblue;
+    height: 50em;
+}
+#kalkulator{
+
+    color: #fff;
+    height: 23em;
+    width: 16em;
+    border-radius: 18px;
+    text-align: center;
+    margin-left: 2em;
+    float: left;
+    margin-top: -2em;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.20);
+    backdrop-filter: blur(5px);
+    border-top: 0.5px solid rgba(255, 255, 255, 0.5);
+    border-left: 0.5px solid rgba(255, 255, 255, 0.5);  
+
+}
+
+#kalkulator table{
+
+    margin: 1em;
+
+}
+
+#kalkulator p{
+
+    font-size: 30px;
+
+}
+
+#kalkulator input[type="text"]{
+
+    border: none;
+    width: 6em;
+    margin: 0 3px;
+    outline: none;
+    color: #fff;
+    text-align: right;
+    font-size: 30px;
+    pointer-events: none;
+    padding-left: 10px;
+    background: transparent;
+}
+
+#kalkulator input[type="button"]{
+
+    font-size: 30px;
+    color: #fff;
+    width: calc(7em / 3 - 1px);
+    height: 1.5em;
+    margin-left: -0.001em;
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+#kalkulator input[type="button"]:hover{
+
+    border-radius: 15px;	
+    background: rgba(255, 255, 255, 0.1);
+
+}
+#kalkulator{
+    position: absolute;
+    left: 3em;
+    top: 265em;
+}.div_kalkulator img{
+    width: 4em;
+    height: 4em;
+    margin: 20px;
+}
+.img_wydatki{
+    position: absolute;
+    right: 3em;
+    top: 264em; 
+}
+.zmiana_koloru_trzy{
+    height: 23em;
+    background: linear-gradient(to bottom, lightskyblue 0%,#0099ff  100%);
+}
+.wykresy{
+    height: 30em;
+    background: linear-gradient(to bottom, #0099ff 0%,#00cc00  100%);
+}
+.zmiana_koloru_cztery{
+    height: 23em;
+    background: linear-gradient(to bottom, #00cc00 0%,#ffff00  100%);
+}
+.stopka{
+
+    height: 3em;
+    background-color: white;
+}
+.stopka_txt{
+    position: absolute;
+    right: 1rem;
+    margin: 1rem;
+}
+#google_data{
+    position: absolute;
+    top: 293em;
+}
+.txt_kalkulator{
+    position: absolute;
+    color: white;
+    font-size: 3rem;
+    left: 0.2em;
+    margin: 3em;
+    width: 28em;
+}
+/*Szkolnictwo wyższe */
+.szkolnictwo_wyzsze {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.szkolnictwo_wyzsze h3 {margin:12px 0;}
+
+.szkolnictwo_wyzsze .szkolnictwo_wyzsze_plus {
+    min-width:200px;
+    max-width:400px;
+    top:-20px;
+    left:50%;
+    transform:translate(-30%,-100%);
+    padding:10px 20px;
+    color:#ffffff;
+    background-color:#009cdc;
+    font-weight:normal;
+    font-size:14px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    display:none;
+}
+
+.szkolnictwo_wyzsze:hover .szkolnictwo_wyzsze_plus {
+    display:block;
+}
+
+.szkolnictwo_wyzsze .szkolnictwo_wyzsze_plus i {
+    position:absolute;
+    top:100%;
+    left:30%;
+    margin-left:-15px;
+    width:30px;
+    height:15px;
+    overflow:hidden;
+}
+
+.szkolnictwo_wyzsze .szkolnictwo_wyzsze_plus i::after {
+    content:'';
+    position:absolute;
+    width:15px;
+    height:15px;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    background-color:#009cdc;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+/*Urzędy naczelnych organów */
+.urzedy_naczelnych {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.urzedy_naczelnych h3 {margin:12px 0;}
+
+.urzedy_naczelnych .urzedy_naczelnych_plus {
+    min-width:200px;
+    max-width:400px;
+    top:-20px;
+    left:50%;
+    transform:translate(-30%,-100%);
+    padding:10px 20px;
+    color:#ffffff;
+    background-color:#009cdc;
+    font-weight:normal;
+    font-size:14px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    display:none;
+}
+
+.urzedy_naczelnych:hover .urzedy_naczelnych_plus {
+    display:block;
+}
+
+.urzedy_naczelnych .urzedy_naczelnych_plus i {
+    position:absolute;
+    top:100%;
+    left:30%;
+    margin-left:-15px;
+    width:30px;
+    height:15px;
+    overflow:hidden;
+}
+
+.urzedy_naczelnych .urzedy_naczelnych_plus i::after {
+    content:'';
+    position:absolute;
+    width:15px;
+    height:15px;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    background-color:#009cdc;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+/*Leśnictwo*/
+.lesnictwo {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.lesnictwo h3 {margin:12px 0;}
+
+.lesnictwo .lesnictwo_plus {
+    min-width:200px;
+    max-width:400px;
+    top:-20px;
+    left:50%;
+    transform:translate(-30%,-100%);
+    padding:10px 20px;
+    color:#ffffff;
+    background-color:#009cdc;
+    font-weight:normal;
+    font-size:14px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    display:none;
+}
+
+.lesnictwo:hover .lesnictwo_plus {
+    display:block;
+}
+
+.lesnictwo .lesnictwo_plus i {
+    position:absolute;
+    top:100%;
+    left:30%;
+    margin-left:-15px;
+    width:30px;
+    height:15px;
+    overflow:hidden;
+}
+
+.lesnictwo .lesnictwo_plus i::after {
+    content:'';
+    position:absolute;
+    width:15px;
+    height:15px;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    background-color:#009cdc;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+/*Rolnictwo*/
+.rolnictwo {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.rolnictwo h3 {margin:12px 0;}
+
+.rolnictwo .rolnictwo_plus {
+    min-width:200px;
+    max-width:400px;
+    top:-20px;
+    left:50%;
+    transform:translate(-30%,-100%);
+    padding:10px 20px;
+    color:#ffffff;
+    background-color:#009cdc;
+    font-weight:normal;
+    font-size:14px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    display:none;
+}
+
+.rolnictwo:hover .rolnictwo_plus {
+    display:block;
+}
+
+.rolnictwo .rolnictwo_plus i {
+    position:absolute;
+    top:100%;
+    left:30%;
+    margin-left:-15px;
+    width:30px;
+    height:15px;
+    overflow:hidden;
+}
+
+.rolnictwo .rolnictwo_plus i::after {
+    content:'';
+    position:absolute;
+    width:15px;
+    height:15px;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    background-color:#009cdc;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+/*Transport*/
+.transport {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.transport h3 {margin:12px 0;}
+
+.transport .transport_plus {
+    min-width:200px;
+    max-width:400px;
+    top:-20px;
+    left:50%;
+    transform:translate(-30%,-100%);
+    padding:10px 20px;
+    color:#ffffff;
+    background-color:#009cdc;
+    font-weight:normal;
+    font-size:14px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    display:none;
+}
+
+.transport:hover .transport_plus {
+    display:block;
+}
+
+.transport .transport_plus i {
+    position:absolute;
+    top:100%;
+    left:30%;
+    margin-left:-15px;
+    width:30px;
+    height:15px;
+    overflow:hidden;
+}
+
+.transport .transport_plus i::after {
+    content:'';
+    position:absolute;
+    width:15px;
+    height:15px;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    background-color:#009cdc;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+/*Komunalna*/
+.komunalna {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.komunalna h3 {margin:12px 0;}
+
+.komunalna .komunalna_plus {
+    min-width:200px;
+    max-width:400px;
+    top:-20px;
+    left:50%;
+    transform:translate(-30%,-100%);
+    padding:10px 20px;
+    color:#ffffff;
+    background-color:#009cdc;
+    font-weight:normal;
+    font-size:14px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    display:none;
+}
+
+.komunalna:hover .komunalna_plus {
+    display:block;
+}
+
+.komunalna .komunalna_plus i {
+    position:absolute;
+    top:100%;
+    left:30%;
+    margin-left:-15px;
+    width:30px;
+    height:15px;
+    overflow:hidden;
+}
+
+.komunalna .komunalna_plus i::after {
+    content:'';
+    position:absolute;
+    width:15px;
+    height:15px;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    background-color:#009cdc;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+/*Mieszkaniowa*/
+.gospodarka_mieszkaniowa {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.gospodarka_mieszkaniowa h3 {margin:12px 0;}
+
+.gospodarka_mieszkaniowa .gospodarka_mieszkaniowa_plus {
+    min-width:200px;
+    max-width:400px;
+    top:-20px;
+    left:50%;
+    transform:translate(-30%,-100%);
+    padding:10px 20px;
+    color:#ffffff;
+    background-color:#009cdc;
+    font-weight:normal;
+    font-size:14px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    display:none;
+}
+
+.gospodarka_mieszkaniowa:hover .gospodarka_mieszkaniowa_plus {
+    display:block;
+}
+
+.gospodarka_mieszkaniowa .gospodarka_mieszkaniowa_plus i {
+    position:absolute;
+    top:100%;
+    left:30%;
+    margin-left:-15px;
+    width:30px;
+    height:15px;
+    overflow:hidden;
+}
+
+.gospodarka_mieszkaniowa .gospodarka_mieszkaniowa_plus i::after {
+    content:'';
+    position:absolute;
+    width:15px;
+    height:15px;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    background-color:#009cdc;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+/*Pozostałe*/
+.pozostale_zadania {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.pozostale_zadania h3 {margin:12px 0;}
+
+.pozostale_zadania .pozostale_zadania_plus {
+    min-width:200px;
+    max-width:400px;
+    top:-20px;
+    left:50%;
+    transform:translate(-30%,-100%);
+    padding:10px 20px;
+    color:#ffffff;
+    background-color:#009cdc;
+    font-weight:normal;
+    font-size:14px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    display:none;
+}
+
+.pozostale_zadania:hover .pozostale_zadania_plus {
+    display:block;
+}
+
+.pozostale_zadania .pozostale_zadania_plus i {
+    position:absolute;
+    top:100%;
+    left:30%;
+    margin-left:-15px;
+    width:30px;
+    height:15px;
+    overflow:hidden;
+}
+
+.pozostale_zadania .pozostale_zadania_plus i::after {
+    content:'';
+    position:absolute;
+    width:15px;
+    height:15px;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    background-color:#009cdc;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+/*Administracja*/
+.administracja_publiczna {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.administracja_publiczna h3 {margin:12px 0;}
+
+.administracja_publiczna .administracja_publiczna_plus {
+    min-width:200px;
+    max-width:400px;
+    top:-20px;
+    left:50%;
+    transform:translate(-30%,-100%);
+    padding:10px 20px;
+    color:#ffffff;
+    background-color:#009cdc;
+    font-weight:normal;
+    font-size:14px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    display:none;
+}
+
+.administracja_publiczna:hover .administracja_publiczna_plus {
+    display:block;
+}
+
+.administracja_publiczna .administracja_publiczna_plus   i {
+    position:absolute;
+    top:100%;
+    left:30%;
+    margin-left:-15px;
+    width:30px;
+    height:15px;
+    overflow:hidden;
+}
+
+.administracja_publiczna .administracja_publiczna_plus i::after {
+    content:'';
+    position:absolute;
+    width:15px;
+    height:15px;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    background-color:#009cdc;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+/*Pomoc Społeczna*/
+.pomoc_spoleczna {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.pomoc_spoleczna h3 {margin:12px 0;}
+
+.pomoc_spoleczna .pomoc_spoleczna_plus {
+    min-width:200px;
+    max-width:400px;
+    top:-20px;
+    left:50%;
+    transform:translate(-30%,-100%);
+    padding:10px 20px;
+    color:#ffffff;
+    background-color:#009cdc;
+    font-weight:normal;
+    font-size:14px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    display:none;
+}
+
+.pomoc_spoleczna:hover .pomoc_spoleczna_plus {
+    display:block;
+}
+
+.pomoc_spoleczna .pomoc_spoleczna_plus   i {
+    position:absolute;
+    top:100%;
+    left:30%;
+    margin-left:-15px;
+    width:30px;
+    height:15px;
+    overflow:hidden;
+}
+
+.pomoc_spoleczna .pomoc_spoleczna_plus i::after {
+    content:'';
+    position:absolute;
+    width:15px;
+    height:15px;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    background-color:#009cdc;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+/*Oswiata Wychowanie*/
+.oswiata_wychowanie {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.oswiata_wychowanie h3 {margin:12px 0;}
+
+.oswiata_wychowanie .oswiata_wychowanie_plus {
+    min-width:200px;
+    max-width:400px;
+    top:-20px;
+    left:50%;
+    transform:translate(-30%,-100%);
+    padding:10px 20px;
+    color:#ffffff;
+    background-color:#009cdc;
+    font-weight:normal;
+    font-size:14px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    display:none;
+}
+
+.oswiata_wychowanie:hover .oswiata_wychowanie_plus {
+    display:block;
+}
+
+.oswiata_wychowanie .oswiata_wychowanie_plus   i {
+    position:absolute;
+    top:100%;
+    left:30%;
+    margin-left:-15px;
+    width:30px;
+    height:15px;
+    overflow:hidden;
+}
+
+.oswiata_wychowanie .oswiata_wychowanie_plus i::after {
+    content:'';
+    position:absolute;
+    width:15px;
+    height:15px;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    background-color:#009cdc;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+#budzet_2021{
+    display: block;
+}
+#budzet_2020,#budzet_2019,#budzet_2018{
+    display: none;
+}
+#pozostale_zadania,#administracja_publiczna,#gospodarka_komunalna,#transport_lacznosc,#pomoc_spoleczna,#oswiata_wychowanie{
+    display: none;
+}
+#gospodarka_mieszkaniowa{
+    display: block;
+}
+.kalkulator_txt{
+    color: white;
+}
+#mieszkaniowa_20, #mieszkaniowa_19, #mieszkaniowa_18{
+    display: none;
+}
+#pozostale_20, #pozostale_19, #pozostale_18{
+    display: none;
+}
+#administracja_20, #administracja_19, #administracja_18{
+    display: none;
+}
+#komunalna_20, #komunalna_19, #komunalna_18{
+    display: none;
+}
+#transport_20, #transport_19, #transport_18{
+    display: none;
+}
+#pomoc_20, #pomoc_19, #pomoc_18{
+    display: none;
+}
+#oswiata_20, #oswiata_19, #oswiata_18{
+    display: none;
+}
+.input_txt{
+    background-color: lightskyblue;
+    border: none;
+    width: 5em;
+    color: white;
+    text-align: right;
+    font-size: 18px;
+}
+.img_wydatki {
+    position: absolute;
+    color: white;
+}
+.img_wydatki select {
+    position: absolute;
+    outline: none;
+    border: none;
+    text-align: left;
+    float: right;
+    right: 0.3em;
+    top: -2em;
+    background: transparent;
+    font-size: 2rem;
+    color: #fff;
+}
+.img_wydatki select :hover{
+    background: rgba(255, 255, 255, 0.1);
+}
+.img_wydatki select option{
+    background: lightskyblue;
+}
+.zmiana_koloru_minusowa{
+    background: linear-gradient(to bottom, white 0%,lightskyblue  100%);
+    height: 8em;
+}
+.panel_administratora{
+    position: relative;
+    background-color: white;
+    height: 50em;
+}
+.panel_administratora a{
+    position: absolute;
+    font-size: 60px;
+    left: 0.6em;
+    top: 1em;
+}
+.tablice table{
+    width: 180px;
+    float: left;
+    border-radius: 6px;
+    margin: 5px;
+    border: 2px solid black;
+}
+.tablice table td input{
+    width: 70px;
+}
+.tablice{
+    position: absolute;
+    width: 1400px;
+    height: 10em;
+    top: 16em;
+    left: 3em;   
+}
+.csv_import{
+    position: absolute;
+    background-color: lightskyblue;
+    height: 100em;
+    width: 100%;
+}
+.tablice a{
+    font-size: 18px;;
+}
+.popup .overlay{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background:rgba(0,0,0,0.7);
+    z-index:1;
+    display:none;
+}
+.popup .content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    width:450px;
+    height:220px;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+}
+.popup .close-btn{
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:30px;
+    height:30px;
+    background:#222;
+    color:#fff;
+    font-size:25px;
+    font-weight:600;
+    line-height:30px;
+    text-align:center;
+    border-radius:50%;
+}
+.popup.active .overlay{
+    display: block;
+}
+.popup.active .content{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+}
+.popup-2 .overlay-2{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background:rgba(0,0,0,0.7);
+    z-index:1;
+    display:none;
+}
+.popup-2 .close-btn-2{
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:30px;
+    height:30px;
+    background:#222;
+    color:#fff;
+    font-size:25px;
+    font-weight:600;
+    line-height:30px;
+    text-align:center;
+    border-radius:50%;
+}
+.popup-2 .content-2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    width:450px;
+    height:220px;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+}
+.popup-2.active .overlay-2{
+    display: block;
+}
+.popup-2.active .content-2{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+}
+.popup-3 .overlay-3{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background:rgba(0,0,0,0.7);
+    z-index:1;
+    display:none;
+}
+.popup-3 .close-btn-3{
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:30px;
+    height:30px;
+    background:#222;
+    color:#fff;
+    font-size:25px;
+    font-weight:600;
+    line-height:30px;
+    text-align:center;
+    border-radius:50%;
+}
+.popup-3 .content-3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    width:450px;
+    height:220px;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+}
+.popup-3.active .overlay-3{
+    display: block;
+}
+.popup-3.active .content-3{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+}
+.popup-4 .overlay-4{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background:rgba(0,0,0,0.7);
+    z-index:1;
+    display:none;
+}
+.popup-4 .close-btn-4{
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:30px;
+    height:30px;
+    background:#222;
+    color:#fff;
+    font-size:25px;
+    font-weight:600;
+    line-height:30px;
+    text-align:center;
+    border-radius:50%;
+}
+.popup-4 .content-4{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    width:450px;
+    height:220px;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+}
+.popup-4.active .overlay-4{
+    display: block;
+}
+.popup-4.active .content-4{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+}
+.popup-5 .overlay-5{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background:rgba(0,0,0,0.7);
+    z-index:1;
+    display:none;
+}
+.popup-5 .close-btn-5{
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:30px;
+    height:30px;
+    background:#222;
+    color:#fff;
+    font-size:25px;
+    font-weight:600;
+    line-height:30px;
+    text-align:center;
+    border-radius:50%;
+}
+.popup-5 .content-5{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    width:450px;
+    height:220px;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+}
+.popup-5.active .overlay-5{
+    display: block;
+}
+.popup-5.active .content-5{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+}
+.popup-6 .overlay-6{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background:rgba(0,0,0,0.7);
+    z-index:1;
+    display:none;
+}
+.popup-6 .close-btn-6{
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:30px;
+    height:30px;
+    background:#222;
+    color:#fff;
+    font-size:25px;
+    font-weight:600;
+    line-height:30px;
+    text-align:center;
+    border-radius:50%;
+}
+.popup-6 .content-6{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    width:450px;
+    height:220px;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+}
+.popup-6.active .overlay-6{
+    display: block;
+}
+.popup-6.active .content-6{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+}
+.popup-7 .overlay-7{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background:rgba(0,0,0,0.7);
+    z-index:1;
+    display:none;
+}
+.popup-7 .close-btn-7{
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:30px;
+    height:30px;
+    background:#222;
+    color:#fff;
+    font-size:25px;
+    font-weight:600;
+    line-height:30px;
+    text-align:center;
+    border-radius:50%;
+}
+.popup-7 .content-7{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    width:450px;
+    height:220px;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+}
+.popup-7.active .overlay-7{
+    display: block;
+}
+.popup-7.active .content-7{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+}
+#inp_1_20, #inp_1_19, #inp_1_18{
+    display: none;
+}
+#inp_1_21,#inp_1_20, #inp_1_19, #inp_1_18{
+    border: 2px solid blue;
+}
+#inp_1_20_txt, #inp_1_19_txt, #inp_1_18_txt{
+    display: none;
+}
+#inp_2_20, #inp_2_19, #inp_2_18{
+    display: none;
+}
+#inp_2_21,#inp_2_20, #inp_2_19, #inp_2_18{
+    border: 2px solid blue;
+}
+#inp_2_20_txt, #inp_2_19_txt, #inp_2_18_txt{
+    display: none;
+}
+#inp_3_20, #inp_3_19, #inp_3_18{
+    display: none;
+}
+#inp_3_21,#inp_3_20, #inp_3_19, #inp_3_18{
+    border: 2px solid blue;
+}
+#inp_3_20_txt, #inp_3_19_txt, #inp_3_18_txt{
+    display: none;
+}
+#inp_4_20, #inp_4_19, #inp_4_18{
+    display: none;
+}
+#inp_4_21,#inp_4_20, #inp_4_19, #inp_4_18{
+    border: 2px solid blue;
+}
+#inp_4_20_txt, #inp_4_19_txt, #inp_4_18_txt{
+    display: none;
+}
+#inp_5_20, #inp_5_19, #inp_5_18{
+    display: none;
+}
+#inp_5_21,#inp_5_20, #inp_5_19, #inp_5_18{
+    border: 2px solid blue;
+}
+#inp_5_20_txt, #inp_5_19_txt, #inp_5_18_txt{
+    display: none;
+}
+#inp_6_20, #inp_6_19, #inp_6_18{
+    display: none;
+}
+#inp_6_21,#inp_6_20, #inp_6_19, #inp_6_18{
+    border: 2px solid blue;
+}
+#inp_6_20_txt, #inp_6_19_txt, #inp_6_18_txt{
+    display: none;
+}
+#inp_7_20, #inp_7_19, #inp_7_18{
+    display: none;
+}
+#inp_7_21,#inp_7_20, #inp_7_19, #inp_7_18{
+    border: 2px solid blue;
+}
+#inp_7_20_txt, #inp_7_19_txt, #inp_7_18_txt{
+    display: none;
+}
+#budzet_20_txt, #budzet_19_txt, #budzet_18_txt{
+    display: none;
+}
+#budzet_20, #budzet_19, #budzet_18{
+    display: none;
+}
+#budzet_21,#budzet_20, #budzet_19, #budzet_18{
+    border: 2px solid blue;
+}
+.lista{
+    position: absolute;
+    top: -11em;
+    right: -1em;
+}
+.lista li{
+    list-style-type: none;
+}
+.tablice #przycisk{
+    position: absolute;
+    top: 17em;
+    right: 1em;
+    width: 16em;
+    height: 3em;
+    font-size: 1.3rem;
+    border-radius: 2rem;
+}
+.popup-8 .overlay-8{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background:rgba(0,0,0,0.7);
+    z-index:1;
+    display:none;
+}
+.popup-8 .close-btn-8{
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:30px;
+    height:30px;
+    background:#222;
+    color:#fff;
+    font-size:25px;
+    font-weight:600;
+    line-height:30px;
+    text-align:center;
+    border-radius:50%;
+}
+.popup-8 .content-8{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    width:450px;
+    height:220px;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+}
+.popup-8.active .overlay-8{
+    display: block;
+}
+.popup-8.active .content-8{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+}
+#budzet_tabela{
+    position: absolute;
+    top: 20em;
+    left: 0.5em;
+}
+input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: black;
+}
+.img_wydatki{
+    position: absolute;
+    top: 230em;
+    right: 28em;
+    width: 15em;
+}
+#kalkulator_wydatki{
+    position: absolute;
+    right: -13em;
+}
+#kalkulator{
+    position: absolute;
+    top: 230em;
+}
+#inp_budz_mieszkaniowa, #inp_budz_pozostale, #inp_budz_oswiata, #inp_budz_pomoc, #inp_budz_komunalna, #inp_budz_transport, #inp_budz_administracja, #inp_budz_gospodarka{
+    position: absolute;
+    text-align: right;
+    right: 1.3em;
+    height: 1em;
+    width: 2.2em;
+}
+#budzet_gminy_21, #budzet_gminy_20, #budzet_gminy_19, #budzet_gminy_18{
+    border: none;
+    background: rgba(0,0,0,0.0);
+    font-size: 6rem;
+    color: white;
+    width: 4em;
+    text-align: right;
+}
+#budzet_mieszkaniowa,#budzet_oswiata,#budzet_pomoc,#budzet_komunalna,#budzet_transport,#budzet_administracja,#budzet_pozostale{
+    position: absolute;
+    font-size: 3rem;
+    right: 1em;
+    top: -0.5em;
+    color: black;
+    border: none;
+    background: rgba(0,0,0,0.0);
+    text-align: right;
+    width: 4em;
+    height: 1em;
+}
+#suma_kalkulator{
+    background: rgba(0,0,0,0.0);
+    color: white;
+    border: none;
+    font-size: 3rem;
+    width: 5.5em;
+}
+.check {
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+    width: 18px;
+    height: 18px;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+}
+.check:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(34,50,84,0.03);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.check svg {
+    position: relative;
+    z-index: 1;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #c8ccd4;
+    stroke-width: 1.5;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.2s ease;
+}
+.check svg path {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 0;
+}
+.check svg polyline {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 66;
+}
+.check:hover:before {
+    opacity: 1;
+}
+.check:hover svg {
+    stroke: #4285f4;
+}
+#cbx_21:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_21:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_21:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2021_ogolny:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2021_ogolny:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2021_ogolny:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2020_ogolny:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2020_ogolny:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2020_ogolny:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2019_ogolny:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2019_ogolny:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2019_ogolny:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2018_ogolny:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2018_ogolny:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2018_ogolny:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2021_oswiata:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2021_oswiata:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2021_oswiata:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2020_oswiata:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2020_oswiata:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2020_oswiata:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2019_oswiata:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2019_oswiata:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2019_oswiata:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2018_oswiata:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2018_oswiata:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2018_oswiata:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2021_pomoc:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2021_pomoc:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2021_pomoc:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2020_pomoc:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2020_pomoc:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2020_pomoc:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2019_pomoc:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2019_pomoc:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2019_pomoc:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2018_pomoc:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2018_pomoc:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2018_pomoc:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2021_komunalna:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2021_komunalna:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2021_komunalna:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2020_komunalna:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2020_komunalna:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2020_komunalna:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2019_komunalna:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2019_komunalna:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2019_komunalna:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2018_komunalna:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2018_komunalna:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2018_komunalna:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2021_transport:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2021_transport:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2021_transport:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2020_transport:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2020_transport:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2020_transport:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2019_transport:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2019_transport:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2019_transport:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2018_transport:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2018_transport:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2018_transport:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2021_administracja:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2021_administracja:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2021_administracja:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2020_administracja:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2020_administracja:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2020_administracja:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2019_administracja:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2019_administracja:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2019_administracja:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2018_administracja:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2018_administracja:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2018_administracja:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2021_mieszkaniowa:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2021_mieszkaniowa:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2021_mieszkaniowa:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2020_mieszkaniowa:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2020_mieszkaniowa:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2020_mieszkaniowa:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2019_mieszkaniowa:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2019_mieszkaniowa:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2019_mieszkaniowa:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2018_mieszkaniowa:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2018_mieszkaniowa:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2018_mieszkaniowa:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2021_pozostale:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2021_pozostale:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2021_pozostale:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2020_pozostale:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2020_pozostale:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2020_pozostale:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2019_pozostale:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2019_pozostale:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2019_pozostale:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2018_pozostale:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2018_pozostale:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2018_pozostale:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2021_budzet:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2021_budzet:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2021_budzet:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2020_budzet:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2020_budzet:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2020_budzet:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2019_budzet:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2019_budzet:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2019_budzet:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#cbx_2018_budzet:checked + .check svg {
+    stroke: #4285f4;
+}
+#cbx_2018_budzet:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#cbx_2018_budzet:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+#csvRoot {
+    display: block;
+    border-collapse: collapse;
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+.csv_table_tr:nth-child(even) {
+    background: #eeeeee;
+}
+
+.csv_table_th,.csv_table_tr:nth-child(1),.csv_table_tr:nth-child(2) {
+    background: #009578;
+    color: #ffffff;
+    text-align: left;
+}
+
+.csv_table_th,
+.csv_table_td {
+    padding: 10px 20px;
+}

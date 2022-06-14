@@ -1,0 +1,330 @@
+*{
+  box-sizing: border-box;
+  		
+}
+
+body{
+
+  height: 100%;
+  width: 100%;
+  /*background: linear-gradient(#33B5FF , #FFFFFF);*/
+  background: lightskyblue;	
+  margin: 0;
+
+}
+
+/*============Kalkulator Style*/
+
+#kalkulator{
+
+  color: #fff;
+  height: 23em;
+  width: 16em;
+  border-radius: 18px;
+  text-align: center;
+  margin-left: 2em;
+  float: left;
+  margin-top: -2em;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.20);
+  backdrop-filter: blur(5px);
+  border-top: 0.5px solid rgba(255, 255, 255, 0.5);
+  border-left: 0.5px solid rgba(255, 255, 255, 0.5);
+
+}
+
+#kalkulator table{
+
+  margin: 1em;
+
+}
+
+#kalkulator p{
+
+  font-size: 30px;
+
+}
+
+#kalkulator input[type="text"]{
+
+  border: none;
+  width: 6em;
+  margin: 0 3px;
+  outline: none;
+  color: #fff;
+  text-align: right;
+  font-size: 30px;
+  pointer-events: none;
+  padding-left: 10px;
+  background: transparent;
+}
+
+#kalkulator input[type="button"]{
+
+  font-size: 30px;
+  color: #fff;
+  width: calc(7em / 3 - 1px);
+  height: 1.5em;
+  margin-left: -0.001em;
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+}
+
+#kalkulator input[type="button"]:hover{
+
+  border-radius: 15px;	
+  background: rgba(255, 255, 255, 0.1);
+
+}
+
+/*============Tabelka Style*/
+
+#tabelka{
+
+  height: 20em;
+  width: 25em;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.20);
+  border-left: 0.5px solid rgba(255, 255, 255, 0.5);
+  padding: 0.5em;
+  margin-top: 1em;
+  float: left;
+  margin-left: 2em;
+  color: #fff;
+
+}
+
+#tabelka input[type="text"]{
+
+  border: none;
+  width: 3.9em;
+  outline: none;
+  color: #fff;
+  text-align: right;
+  pointer-events: none;
+  float: right;
+  background: transparent;
+  font-size: 19px;
+		
+}
+
+#tabelka input[type="number"]{
+
+  outline: none;
+  border: none;
+  width: 4.6em;
+  color: #fff;
+  text-align: right;
+  float: right;
+  background: transparent;
+  font-size: 19px;
+		
+}
+
+#tabelka input[type="number"]:hover{
+
+  background: rgba(255, 255, 255, 0.1);
+		
+}
+
+#budzet_tabelka{
+
+
+  font-size: 25px;
+  margin-top: 1.3em;
+
+}
+
+#budzet_input{
+		   
+  text-align: left;
+  width: 6em;
+  font-size: 30px;
+
+}
+
+#pozostale_tabelka tr td input{
+
+  pointer-events: none;
+
+}
+
+.tekst{
+
+  width: 6.5em;
+
+}
+
+/*============Wybory Style*/
+
+#wybory{
+
+  font-size: 19px;		
+  color: #fff;
+  margin-left: 1.5em;
+  width: 21.4em;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.20);
+  border-top: 0.5px solid rgba(255, 255, 255, 0.5);
+  border-left: 0.5px solid rgba(255, 255, 255, 0.5);
+  padding: 0.5em;
+  margin-top: 2em;
+
+}
+
+#wybory select{
+
+  outline: none;
+  border: none;
+  text-align: left;
+  float: right;
+  background: transparent;
+  font-size: 1rem;
+  color: #fff;
+
+}
+
+#wybory select:hover{
+
+  background: rgba(255, 255, 255, 0.1);
+
+}
+		
+#wybory select option{
+
+  background: lightskyblue;
+  border-radius: 15px;
+
+}
+
+/*============Zapisz Style*/
+
+#zapisz_tabelka{
+
+  margin-top: 18.5em;
+  margin-left: -21em;
+  font-size: 19px;		
+  color: #fff;
+  width: 21em;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.20);
+  border-left: 0.5px solid rgba(255, 255, 255, 0.5);
+  padding: 0.5em;
+  float: left;
+
+}
+
+#przycisk{
+
+  width: 2em;
+  height: 2em;
+  float: right;
+  margin-right: 5px;
+
+}
+
+#zapisz_tabelka select{
+
+  outline: none;
+  border: none;
+  text-align: left;
+  float: left;
+  background: transparent;
+  font-size: 1rem;
+  color: #fff;
+
+}
+
+#zapisz_tabelka select:hover{
+
+  background: rgba(255, 255, 255, 0.1);
+
+}
+
+#zapisz_tabelka label, #zapisz_tabelka input[type="checkbox"]{
+
+  float: right;
+
+}
+
+#zapisz_tabelka select option{
+
+  background: lightskyblue;
+
+}
+
+#prawo, #lewo{
+
+  height: 2em;
+  width: 2em;
+
+}
+
+#box{
+
+  background-color: grey;
+  margin: auto;
+  width: 300px;
+  padding: 20px;
+  
+}
+
+#div_list select{
+  margin-left: 2em;
+  margin-top: 4em;
+  background-color: yellow;
+  position: absolute;
+  left: 5;
+}
+
+@media (max-width:  1100px){
+  #wybory{
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+  }
+  #tabelka{
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+  }
+  #zapisz_tabelka{
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    margin-top: 5%;
+  }
+  #kalkulator{
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    margin-top: 6%;
+  }
+  #tabelka input[type="text"]{
+
+    width: 80%;
+    font-size: 10px;
+    
+  }
+
+  #tabelka input[type="number"]{
+
+    margin-left: 5%;
+    float: left;
+    width: 80%;
+    font-size: 10px;
+    
+  }
+  .chart{
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+  }
+}

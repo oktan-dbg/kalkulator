@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script language="JavaScript">
+
+        /*============Zmienne Procentowe*/
+
+        var liczba;
+
+        var zmienna = 8;
+
+        var budzet_zmienna = 0;
+
+        var prc_1 = 5;
+        var prc_2 = 10;
+        var prc_3 = 5;
+        var prc_4 = 5;
+        var prc_5 = 5;
+        var prc_6 = 5;
+        var prc_7 = 65;
+
+
+        var budzet_zmienna_21 = 50000;
+
+        var prc_1_21 = 10;
+        var prc_2_21 = 22;
+        var prc_3_21 = 12;
+        var prc_4_21 = 12;
+        var prc_5_21 = 12;
+        var prc_6_21 = 12;
+        var prc_7_21 = 20;
+
+
+        var budzet_zmienna_20 = 40000;
+
+        var prc_1_20 = 11;
+        var prc_2_20 = 21;
+        var prc_3_20 = 11;
+        var prc_4_20 = 10;
+        var prc_5_20 = 11;
+        var prc_6_20 = 11;
+        var prc_7_20 = 25;
+
+
+        var budzet_zmienna_19 = 30000;
+
+        var prc_1_19 = 10;
+        var prc_2_19 = 20;
+        var prc_3_19 = 10;
+        var prc_4_19 = 10;
+        var prc_5_19 = 10;
+        var prc_6_19 = 10;
+        var prc_7_19 = 30;
+
+
+        var budzet_zmienna_18 = 20000;
+
+        var prc_1_18 = 5;
+        var prc_2_18 = 10;
+        var prc_3_18 = 5;
+        var prc_4_18 = 5;
+        var prc_5_18 = 5;
+        var prc_6_18 = 5;
+        var prc_7_18 = 65;
+
+        /*============Funkcja Mnożąca Budżet*/
+
+        function pomnoz_budzet() {
+
+            var boswiata = budzet_zmienna * (prc_1 / 100);
+            document.getElementById('oswiata_budzet').value = boswiata;
+
+            var bpomoc = budzet_zmienna * (prc_2 / 100);
+            document.getElementById('pomoc_budzet').value = bpomoc;
+
+            var bkomunalna = budzet_zmienna * (prc_3 / 100);
+            document.getElementById('komunalna_budzet').value = bkomunalna;
+
+            var btransport = budzet_zmienna * (prc_4 / 100);
+            document.getElementById('transport_budzet').value = btransport;
+
+            var badministracja = budzet_zmienna * (prc_5 / 100);
+            document.getElementById('administracja_budzet').value = badministracja;
+
+            var bmieszkaniowa = budzet_zmienna * (prc_6 / 100);
+            document.getElementById('mieszkaniowa_budzet').value = bmieszkaniowa;
+
+            var bpozostale = budzet_zmienna * (prc_7 / 100);
+            document.getElementById('pozostale_budzet').value = bpozostale;
+
+
+        }
+
+        /*============Funkcja Mnożąca*/
+
+        function pomnoz() {
+
+            var textview = document.getElementById('textview').value;
+
+            var woswiata = textview * (prc_1 / 100);
+            document.getElementById('oswiata').value = woswiata;
+
+
+            var wpomoc = textview * (prc_2 / 100);
+            document.getElementById('pomoc').value = wpomoc;
+
+            var wkomunalna = textview * (prc_3 / 100);
+            document.getElementById('komunalna').value = wkomunalna;
+
+            var wtransport = textview * (prc_4 / 100);
+            document.getElementById('transport').value = wtransport;
+
+            var wadministracja = textview * (prc_5 / 100);
+            document.getElementById('administracja').value = wadministracja;
+
+            var wmieszkaniowa = textview * (prc_6 / 100);
+            document.getElementById('mieszkaniowa').value = wmieszkaniowa;
+
+            var wpozostale = textview * (prc_7 / 100);
+            document.getElementById('pozostale').value = wpozostale;
+
+
+        }
+
+        /*============Pętla*/
+
+        setInterval(function () {
+
+            var input_1 = document.getElementById("inp_1");
+            var input_2 = document.getElementById("inp_2");
+            var input_3 = document.getElementById("inp_3");
+            var input_4 = document.getElementById("inp_4");
+            var input_5 = document.getElementById("inp_5");
+            var input_6 = document.getElementById("inp_6");
+            var input_7 = document.getElementById("inp_7");
+
+            if (prc_7 == 0) {
+
+                input_1.setAttribute("max", prc_1);
+                input_2.setAttribute("max", prc_2);
+                input_3.setAttribute("max", prc_3);
+                input_4.setAttribute("max", prc_4);
+                input_5.setAttribute("max", prc_5);
+                input_6.setAttribute("max", prc_6);
+                input_7.setAttribute("max", prc_7);
+
+            } else {
+                input_1.setAttribute("max", 100);
+                input_2.setAttribute("max", 100);
+                input_3.setAttribute("max", 100);
+                input_4.setAttribute("max", 100);
+                input_5.setAttribute("max", 100);
+                input_6.setAttribute("max", 100);
+                input_7.setAttribute("max", 100);
+            }
+
+            prc_1 = document.getElementById('inp_1').value;
+            prc_2 = document.getElementById('inp_2').value;
+            prc_3 = document.getElementById('inp_3').value;
+            prc_4 = document.getElementById('inp_4').value;
+            prc_5 = document.getElementById('inp_5').value;
+            prc_6 = document.getElementById('inp_6').value;
+            prc_7 = 100 - (Number(prc_1) + Number(prc_2) + Number(prc_3) + Number(prc_4) + Number(prc_5) + Number(prc_6));
+            document.getElementById("inp_7").value = prc_7;
+            budzet_zmienna = document.getElementById('budzet_input').value;
+            pomnoz()
+            pomnoz_budzet()
+
+            if (zmienna == 0) {
+
+                document.getElementById("wybor").selectedIndex = 0;
+
+            } else if (zmienna == 1) {
+
+                document.getElementById("wybor").selectedIndex = 1;
+
+            } else if (zmienna == 2) {
+
+                document.getElementById("wybor").selectedIndex = 2;
+
+            } else if (zmienna == 3) {
+
+                document.getElementById("wybor").selectedIndex = 3;
+
+            } else if (zmienna == 4) {
+
+                document.getElementById("wybor").selectedIndex = 4;
+
+            } else if (zmienna == 5) {
+
+                document.getElementById("wybor").selectedIndex = 5;
+
+            } else if (zmienna == 6) {
+
+                document.getElementById("wybor").selectedIndex = 6;
+
+            } else if (zmienna == 7) {
+
+                document.getElementById("wybor").selectedIndex = 7;
+
+            }
+            if (screen.width < 1200) {
+                document.getElementById("chart_div").style.display = 'none';
+                document.getElementById("curve_chart").style.display = 'none';
+            } else {
+                if (document.getElementById("oprocentowanie").checked == true) {
+
+                    document.getElementById("chart_div").style.display = 'block';
+
+                }
+                document.getElementById("curve_chart").style.display = 'block';
+            }
+
+
+            showhide()
+        }, 1);
+
+        /*============Funkcja Dodawania Liczby*/
+
+        function insert(num) {
+
+            document.getElementById('textview').value = document.getElementById('textview').value + num;
+            pomnoz()
+
+        }
+
+        /*============Funkcja Czyszcząca*/
+
+        function clean() {
+
+            document.getElementById('textview').value = "";
+
+        }
+
+        /*============Funkcja procent_checker*/
+
+        function procent_checker() {
+
+            var selectedValue = document.getElementById("rok").value;
+
+            if (selectedValue == "2021") {
+
+                if (prc_1 == prc_1_21 && prc_2 == prc_2_21 && prc_3 == prc_3_21 && prc_4 == prc_4_21 && prc_5 == prc_5_21 && prc_6 == prc_6_21 && prc_7 == prc_7_21 && budzet_zmienna == budzet_zmienna_21) {
+
+                    document.getElementById("przycisk").src = "save_green.png";
+
+                } else {
+
+                    document.getElementById("przycisk").src = "save_red.png";
+
+                }
+            }
+
+            if (selectedValue == "2020") {
+
+                if (prc_1 == prc_1_20 && prc_2 == prc_2_20 && prc_3 == prc_3_20 && prc_4 == prc_4_20 && prc_5 == prc_5_20 && prc_6 == prc_6_20 && prc_7 == prc_7_20 && budzet_zmienna == budzet_zmienna_20) {
+
+                    document.getElementById("przycisk").src = "save_green.png";
+
+                } else {
+
+                    document.getElementById("przycisk").src = "save_red.png";
+
+                }
+            }
+
+            if (selectedValue == "2019") {
+
+                if (prc_1 == prc_1_19 && prc_2 == prc_2_19 && prc_3 == prc_3_19 && prc_4 == prc_4_19 && prc_5 == prc_5_19 && prc_6 == prc_6_19 && prc_7 == prc_7_19 && budzet_zmienna == budzet_zmienna_19) {
+
+                    document.getElementById("przycisk").src = "save_green.png";
+
+                } else {
+
+                    document.getElementById("przycisk").src = "save_red.png";
+
+                }
+            }
+
+            if (selectedValue == "2018") {
+
+                if (prc_1 == prc_1_18 && prc_2 == prc_2_18 && prc_3 == prc_3_18 && prc_4 == prc_4_18 && prc_5 == prc_5_18 && prc_6 == prc_6_18 && prc_7 == prc_7_18 && budzet_zmienna == budzet_zmienna_18) {
+
+                    document.getElementById("przycisk").src = "save_green.png";
+
+                } else {
+
+                    document.getElementById("przycisk").src = "save_red.png";
+
+                }
+            }
+
+
+            console.log("procent_checker is working!!!");
+
+        }
+
+        /*============Funkcja Cofająca*/
+
+        function back() {
+
+            var exp = document.form.textview.value;
+            document.getElementById('textview').value = exp.substring(0, exp.length - 1)
+
+        }
+
+        /*============Funkcja Zapisująca*/
+
+        function zapisz() {
+
+            var selectedValue = document.getElementById("rok").value;
+
+            if (selectedValue == "2021") {
+
+                budzet_zmienna_21 = budzet_zmienna;
+                prc_1_21 = prc_1;
+                prc_2_21 = prc_2;
+                prc_3_21 = prc_3;
+                prc_4_21 = prc_4;
+                prc_5_21 = prc_5;
+                prc_6_21 = prc_6;
+                prc_7_21 = prc_7;
+                document.getElementById("przycisk").src = "save_green.png";
+
+            } else if (selectedValue == "2020") {
+
+                budzet_zmienna_20 = budzet_zmienna;
+                prc_1_20 = prc_1;
+                prc_2_20 = prc_2;
+                prc_3_20 = prc_3;
+                prc_4_20 = prc_4;
+                prc_5_20 = prc_5;
+                prc_6_20 = prc_6;
+                prc_7_20 = prc_7;
+                document.getElementById("przycisk").src = "save_green.png";
+
+            } else if (selectedValue == "2019") {
+
+                budzet_zmienna_19 = budzet_zmienna;
+                prc_1_19 = prc_1;
+                prc_2_19 = prc_2;
+                prc_3_19 = prc_3;
+                prc_4_19 = prc_4;
+                prc_5_19 = prc_5;
+                prc_6_19 = prc_6;
+                prc_7_19 = prc_7;
+                document.getElementById("przycisk").src = "save_green.png";
+
+            } else if (selectedValue == "2018") {
+
+                budzet_zmienna_18 = budzet_zmienna;
+                prc_1_18 = prc_1;
+                prc_2_18 = prc_2;
+                prc_3_18 = prc_3;
+                prc_4_18 = prc_4;
+                prc_5_18 = prc_5;
+                prc_6_18 = prc_6;
+                prc_7_18 = prc_7;
+                document.getElementById("przycisk").src = "save_green.png";
+
+            } else {
+
+                document.getElementById("przycisk").src = "save_red.png";
+
+            }
+
+            console.log("saving is working!!!");
+            if (document.getElementById("oprocentowanie").checked == true) {
+
+                drawChart()
+
+            } else {
+
+            }
+            drawChart_2()
+
+
+        }
+
+        /*============Funkcja Dodająca*/
+
+        function dodaj() {
+
+            if (zmienna == 8) {
+
+                zmienna = 1;
+                console.log(zmienna);
+
+            } else {
+
+                zmienna++;
+                console.log(zmienna);
+
+            }
+
+        }
+
+        /*============Funkcja Odejmująca*/
+
+        function odejmij() {
+
+            if (zmienna == 1) {
+
+                zmienna = 8;
+                console.log(zmienna);
+
+            } else {
+
+                zmienna--;
+                console.log(zmienna);
+
+            }
+
+        }
+
+        /*============showhide*/
+
+        function showhide() {
+
+            var selectedValue = document.getElementById("wybor").value;
+
+            if (selectedValue == "wszystko") {
+
+                document.getElementById("oswiata_tabelka").style.display = 'block'
+                document.getElementById("pomoc_tabelka").style.display = 'block'
+                document.getElementById("komunalna_tabelka").style.display = 'block'
+                document.getElementById("transport_tabelka").style.display = 'block'
+                document.getElementById("administracja_tabelka").style.display = 'block'
+                document.getElementById("mieszkaniowa_tabelka").style.display = 'block'
+                document.getElementById("pozostale_tabelka").style.display = 'block'
+                document.getElementById("tabelka").style.height = "20em";
+
+
+            } else if (selectedValue == "oswiata") {
+
+                document.getElementById("oswiata_tabelka").style.display = 'block'
+                document.getElementById("pomoc_tabelka").style.display = 'none'
+                document.getElementById("komunalna_tabelka").style.display = 'none'
+                document.getElementById("transport_tabelka").style.display = 'none'
+                document.getElementById("administracja_tabelka").style.display = 'none'
+                document.getElementById("mieszkaniowa_tabelka").style.display = 'none'
+                document.getElementById("pozostale_tabelka").style.display = 'none'
+                document.getElementById("tabelka").style.height = "8.5em";
+
+            } else if (selectedValue == "pomoc") {
+
+                document.getElementById("oswiata_tabelka").style.display = 'none'
+                document.getElementById("pomoc_tabelka").style.display = 'block'
+                document.getElementById("komunalna_tabelka").style.display = 'none'
+                document.getElementById("transport_tabelka").style.display = 'none'
+                document.getElementById("administracja_tabelka").style.display = 'none'
+                document.getElementById("mieszkaniowa_tabelka").style.display = 'none'
+                document.getElementById("pozostale_tabelka").style.display = 'none'
+                document.getElementById("tabelka").style.height = "9em";
+
+            } else if (selectedValue == "komunalna") {
+
+                document.getElementById("oswiata_tabelka").style.display = 'none'
+                document.getElementById("pomoc_tabelka").style.display = 'none'
+                document.getElementById("komunalna_tabelka").style.display = 'block'
+                document.getElementById("transport_tabelka").style.display = 'none'
+                document.getElementById("administracja_tabelka").style.display = 'none'
+                document.getElementById("mieszkaniowa_tabelka").style.display = 'none'
+                document.getElementById("pozostale_tabelka").style.display = 'none'
+                document.getElementById("tabelka").style.height = "8.5em";
+
+            } else if (selectedValue == "transport") {
+
+                document.getElementById("oswiata_tabelka").style.display = 'none'
+                document.getElementById("pomoc_tabelka").style.display = 'none'
+                document.getElementById("komunalna_tabelka").style.display = 'none'
+                document.getElementById("transport_tabelka").style.display = 'block'
+                document.getElementById("administracja_tabelka").style.display = 'none'
+                document.getElementById("mieszkaniowa_tabelka").style.display = 'none'
+                document.getElementById("pozostale_tabelka").style.display = 'none'
+                document.getElementById("tabelka").style.height = "8.5em";
+
+            } else if (selectedValue == "administracja") {
+
+                document.getElementById("oswiata_tabelka").style.display = 'none'
+                document.getElementById("pomoc_tabelka").style.display = 'none'
+                document.getElementById("komunalna_tabelka").style.display = 'none'
+                document.getElementById("transport_tabelka").style.display = 'none'
+                document.getElementById("administracja_tabelka").style.display = 'block'
+                document.getElementById("mieszkaniowa_tabelka").style.display = 'none'
+                document.getElementById("pozostale_tabelka").style.display = 'none'
+                document.getElementById("tabelka").style.height = "8.5em";
+
+            } else if (selectedValue == "mieszkaniowa") {
+
+                document.getElementById("oswiata_tabelka").style.display = 'none'
+                document.getElementById("pomoc_tabelka").style.display = 'none'
+                document.getElementById("komunalna_tabelka").style.display = 'none'
+                document.getElementById("transport_tabelka").style.display = 'none'
+                document.getElementById("administracja_tabelka").style.display = 'none'
+                document.getElementById("mieszkaniowa_tabelka").style.display = 'block'
+                document.getElementById("pozostale_tabelka").style.display = 'none'
+                document.getElementById("tabelka").style.height = "8.5em";
+
+            } else if (selectedValue == "pozostale") {
+
+                document.getElementById("oswiata_tabelka").style.display = 'none'
+                document.getElementById("pomoc_tabelka").style.display = 'none'
+                document.getElementById("komunalna_tabelka").style.display = 'none'
+                document.getElementById("transport_tabelka").style.display = 'none'
+                document.getElementById("administracja_tabelka").style.display = 'none'
+                document.getElementById("mieszkaniowa_tabelka").style.display = 'none'
+                document.getElementById("pozostale_tabelka").style.display = 'block'
+                document.getElementById("tabelka").style.height = "8.5em";
+
+            }
+        }
+
+        /*============Checker*/
+
+        function checker() {
+
+            var selectedValue = document.getElementById("rok").value;
+
+            if (selectedValue == "2021") {
+
+                budzet_zmienna = budzet_zmienna_21;
+                prc_1 = prc_1_21;
+                prc_2 = prc_2_21;
+                prc_3 = prc_3_21;
+                prc_4 = prc_4_21;
+                prc_5 = prc_5_21;
+                prc_6 = prc_6_21;
+                prc_7 = prc_7_21;
+                document.getElementById('inp_1').value = prc_1;
+                document.getElementById('inp_2').value = prc_2;
+                document.getElementById('inp_3').value = prc_3;
+                document.getElementById('inp_4').value = prc_4;
+                document.getElementById('inp_5').value = prc_5;
+                document.getElementById('inp_6').value = prc_6;
+                document.getElementById('inp_7').value = prc_7;
+                document.getElementById('budzet_input').value = budzet_zmienna_21;
+                pomnoz()
+
+
+
+            } else if (selectedValue == "2020") {
+
+                budzet_zmienna = budzet_zmienna_20;
+                prc_1 = prc_1_20;
+                prc_2 = prc_2_20;
+                prc_3 = prc_3_20;
+                prc_4 = prc_4_20;
+                prc_5 = prc_5_20;
+                prc_6 = prc_6_20;
+                prc_7 = prc_7_20;
+                document.getElementById('inp_1').value = prc_1;
+                document.getElementById('inp_2').value = prc_2;
+                document.getElementById('inp_3').value = prc_3;
+                document.getElementById('inp_4').value = prc_4;
+                document.getElementById('inp_5').value = prc_5;
+                document.getElementById('inp_6').value = prc_6;
+                document.getElementById('inp_7').value = prc_7;
+                document.getElementById('budzet_input').value = budzet_zmienna_20;
+                pomnoz()
+
+
+            } else if (selectedValue == "2019") {
+
+                budzet_zmienna = budzet_zmienna_19;
+                prc_1 = prc_1_19;
+                prc_2 = prc_2_19;
+                prc_3 = prc_3_19;
+                prc_4 = prc_4_19;
+                prc_5 = prc_5_19;
+                prc_6 = prc_6_19;
+                prc_7 = prc_7_19;
+                document.getElementById("inp_1").value = prc_1;
+                document.getElementById("inp_2").value = prc_2;
+                document.getElementById("inp_3").value = prc_3;
+                document.getElementById("inp_4").value = prc_4;
+                document.getElementById("inp_5").value = prc_5;
+                document.getElementById("inp_6").value = prc_6;
+                document.getElementById("inp_7").value = prc_7;
+                document.getElementById('budzet_input').value = budzet_zmienna_19;
+                pomnoz()
+
+
+            } else if (selectedValue == "2018") {
+
+                budzet_zmienna = budzet_zmienna_18;
+                prc_1 = prc_1_18;
+                prc_2 = prc_2_18;
+                prc_3 = prc_3_18;
+                prc_4 = prc_4_18;
+                prc_5 = prc_5_18;
+                prc_6 = prc_6_18;
+                prc_7 = prc_7_18;
+                document.getElementById("inp_1").value = prc_1;
+                document.getElementById("inp_2").value = prc_2;
+                document.getElementById("inp_3").value = prc_3;
+                document.getElementById("inp_4").value = prc_4;
+                document.getElementById("inp_5").value = prc_5;
+                document.getElementById("inp_6").value = prc_6;
+                document.getElementById("inp_7").value = prc_7;
+                document.getElementById('budzet_input').value = budzet_zmienna_18;
+                pomnoz()
+
+
+            }
+            if (selectedValue == "2021") {
+
+                if (prc_1 == prc_1_21 && prc_2 == prc_2_21 && prc_3 == prc_3_21 && prc_4 == prc_4_21 && prc_5 == prc_5_21 && prc_6 == prc_6_21 && prc_7 == prc_7_21) {
+
+                    document.getElementById("przycisk").src = "save_green.png";
+
+                } else {
+
+                    document.getElementById("przycisk").src = "save_red.png";
+
+                }
+            }
+
+            if (selectedValue == "2020") {
+
+                if (prc_1 == prc_1_20 && prc_2 == prc_2_20 && prc_3 == prc_3_20 && prc_4 == prc_4_20 && prc_5 == prc_5_20 && prc_6 == prc_6_20 && prc_7 == prc_7_20) {
+
+                    document.getElementById("przycisk").src = "save_green.png";
+
+                } else {
+
+                    document.getElementById("przycisk").src = "save_red.png";
+
+                }
+            }
+
+            if (selectedValue == "2019") {
+
+                if (prc_1 == prc_1_19 && prc_2 == prc_2_19 && prc_3 == prc_3_19 && prc_4 == prc_4_19 && prc_5 == prc_5_19 && prc_6 == prc_6_19 && prc_7 == prc_7_19) {
+
+                    document.getElementById("przycisk").src = "save_green.png";
+
+                } else {
+
+                    document.getElementById("przycisk").src = "save_red.png";
+
+                }
+            }
+
+            if (selectedValue == "2018") {
+
+                if (prc_1 == prc_1_18 && prc_2 == prc_2_18 && prc_3 == prc_3_18 && prc_4 == prc_4_18 && prc_5 == prc_5_18 && prc_6 == prc_6_18 && prc_7 == prc_7_18) {
+
+                    document.getElementById("przycisk").src = "save_green.png";
+
+                } else {
+
+                    document.getElementById("przycisk").src = "save_red.png";
+
+                }
+            }
+
+            if (document.getElementById("oprocentowanie").checked == true) {
+
+                document.getElementById("chart_div").style.display = 'block';
+                drawChart()
+                console.log("checkbox opt 1 is working!!!");
+                /*document.getElementById("chart_div").style.height = "38em";
+                document.getElementById("chart_div").style.groupWidth= "45em";*/
+
+            } else {
+                document.getElementById("chart_div").style.display = 'none';
+                console.log("checkbox opt 2 is working!!!");
+                /*document.getElementById("chart_div").style.height = "38em";
+                document.getElementById("chart_div").style.groupWidth= "45em";*/
+            }
+
+            console.log("checker is working!!!");
+
+        }
+
+        /*============Funkcja Google Charts Liniowa*/
+
+
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart_2);
+
+        function drawChart_2() {
+            var data = google.visualization.arrayToDataTable([
+                ['Rok', 'Oświata', 'Pomoc społeczna', 'Komunalna', 'Transport', 'Administracja', 'Mieszkaniowa', 'Pozostałe'],
+                ['2018', prc_1_18, prc_2_18, prc_3_18, prc_4_18, prc_5_18, prc_6_18, prc_7_18],
+                ['2019', prc_1_19, prc_2_19, prc_3_19, prc_4_19, prc_5_19, prc_6_19, prc_7_19],
+                ['2020', prc_1_20, prc_2_20, prc_3_20, prc_4_20, prc_5_20, prc_6_20, prc_7_20],
+                ['2021', prc_1_21, prc_2_21, prc_3_21, prc_4_21, prc_5_21, prc_6_21, prc_7_21]
+            ]);
+
+            var options = {
+                series: [{
+                    color: '#fff'
+                }, {
+                    color: '#fff'
+                }],
+                legend: {
+                    textStyle: { color: '#fff' },
+                    position: 'top',
+                    maxLines: 1
+                },
+                chart: {
+                    title: 'Wykres zmian procentowych',
+                    subtitle: '2018-2021'
+                },
+                backgroundColor: {
+                    fill: '#87cefa'
+
+                },
+                chartArea: {
+                    backgroundColor: '#87cefa'
+                },
+                hAxis: {
+                    textStyle: { color: '#fff' }
+                },
+                vAxis: {
+                    textStyle: { color: '#fff' }
+                },
+                bar: {
+                    groupWidth: '75%'
+                },
+                titleTextStyle: {
+                    color: '#fff'
+                },
+                /*width: 700,
+                height: 200,*/
+                width: liczba,
+                height: 700,
+                axes: {
+                    x: {
+                        0: { side: 'top' }
+                    }
+                }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+
+        /*============Funkcja Google Charts*/
+
+        google.charts.load('current', { packages: ['bar'] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Rok', 'Oświata', 'Pomoc społeczna', 'Komunalna', 'Transport', 'Administracja', 'Mieszkaniowa', 'Pozostałe'],
+                ['2018', prc_1_18, prc_2_18, prc_3_18, prc_4_18, prc_5_18, prc_6_18, prc_7_18],
+                ['2019', prc_1_19, prc_2_19, prc_3_19, prc_4_19, prc_5_19, prc_6_19, prc_7_19],
+                ['2020', prc_1_20, prc_2_20, prc_3_20, prc_4_20, prc_5_20, prc_6_20, prc_7_20],
+                ['2021', prc_1_21, prc_2_21, prc_3_21, prc_4_21, prc_5_21, prc_6_21, prc_7_21]
+            ]);
+
+            var options = {
+
+                width: liczba,
+
+                isStacked: true,
+                series: [{
+                    color: '#fff'
+                }, {
+                    color: '#fff'
+                }],
+                legend: {
+                    textStyle: { color: '#fff' },
+                    position: 'top',
+                    maxLines: 3
+                },
+
+                backgroundColor: {
+                    fill: '#87cefa'
+
+                },
+                chartArea: {
+                    backgroundColor: '#87cefa'
+                },
+
+                hAxis: {
+                    textStyle: { color: '#fff' }
+                },
+                vAxis: {
+                    textStyle: { color: '#fff' },
+                    minValue: 0,
+                    ticks: [0, 0.25, 0.50, 0.75, 1]
+                },
+
+                bar: {
+                    groupWidth: '75%'
+                },
+                chart: {
+                    title: 'Porównanie oprocentowania',
+                    subtitle: 'Oświata, Pomoc społeczna, Komunalna, Transport, Administracja, Mieszkaniowa i Pozostałe: 2018-2021'
+                },
+                titleTextStyle: {
+                    color: '#fff'
+                }
+            };
+
+            var container = document.getElementById('chart_div');
+            var chart = new google.charts.Bar(container);
+
+            google.visualization.events.addListener(chart, 'ready', function () {
+                var labels = document.getElementsByTagName('text');
+                for (var i = 0; i < labels.length; i++) {
+                    if (labels[i].innerHTML === options.chart.subtitle) {
+                        labels[i].style.fill = 'white';
+                        labels[i].style.fontFamily = 'Courier';
+                        labels[i].style.fontSize = "0.7em";
+                        break;
+                    }
+                }
+            });
+
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <style type="text/css">
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+    </style>
+
+    <!--============Wybor-->
+
+    <table id=wybory>
+        <tr>
+            <td>Kategoria</td>
+            <td>
+                <select id="wybor" onchange="showhide()">
+
+                    <option value="oswiata">Oświata</option>
+                    <option value="pomoc">Pomoc Społeczna</option>
+                    <option value="komunalna">Komunalna</option>
+                    <option value="transport">Transport</option>
+                    <option value="administracja">Administracja</option>
+                    <option value="mieszkaniowa">Mieszkaniowa</option>
+                    <option value="pozostale">Pozostałe</option>
+                    <option value="wszystko" selected>Wszystko</option>
+
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <!--============Tabelka-->
+
+    <div id="tabelka">
+        <table id="header">
+            <tr>
+                <a style=" word-spacing: 1.8em; color: #fff;float: right;margin-right: 1em;"><strong></strong>
+                    <strong>Procent</strong>
+                    <strong>Budżet</strong>
+                    <strong>Kwota</strong></a>
+            </tr>
+        </table>
+
+        <table id="oswiata_tabelka">
+            <tr>
+                <td>
+                    <div class="tekst">Oświata</div>
+                </td>
+                <td><input style="pointer-events: none;" readonly="readonly" type="number" id="inp_1" value="5"
+                        name="prc" min="0" max="100" step="0.01" onchange="procent_checker()"></td>
+                <td>%</td>
+                <td><input type="text" size="10" id="oswiata_budzet" readonly="readonly" name="odp"><br></td>
+                <td><input type="text" size="10" id="oswiata" readonly="readonly" name="odp"><br></td>
+            </tr>
+        </table>
+
+        <table id="pomoc_tabelka">
+            <tr>
+                <td>
+                    <div class="tekst">Pomoc społeczna</div>
+                </td>
+                <td><input style="pointer-events: none;" readonly="readonly" type="number" id="inp_2" value="10"
+                        name="prc" min="0" max="100" step="0.01" onchange="procent_checker()"></td>
+                <td>%</td>
+                <td><input type="text" size="10" id="pomoc_budzet" readonly="readonly" name="odp"><br></td>
+                <td><input type="text" size="10" id="pomoc" readonly="readonly" name="odp"><br></td>
+            </tr>
+        </table>
+
+        <table id="komunalna_tabelka">
+            <tr>
+                <td>
+                    <div class="tekst">Komunalna</div>
+                </td>
+                <td><input style="pointer-events: none;" readonly="readonly" type="number" id="inp_3" value="5"
+                        name="prc" min="0" max="100" step="0.01" onchange="procent_checker()"></td>
+                <td>%</td>
+                <td><input type="text" size="10" id="komunalna_budzet" readonly="readonly" name="odp"><br></td>
+                <td><input type="text" size="10" id="komunalna" readonly="readonly" name="odp"><br></td>
+            </tr>
+        </table>
+
+        <table id="transport_tabelka">
+            <tr>
+                <td>
+                    <div class="tekst">Transport</div>
+                </td>
+                <td><input style="pointer-events: none;" readonly="readonly" type="number" id="inp_4" value="5"
+                        name="prc" min="0" max="100" step="0.01" onchange="procent_checker()"></td>
+                <td>%</td>
+                <td><input type="text" size="10" id="transport_budzet" readonly="readonly" name="odp"><br></td>
+                <td><input type="text" size="10" id="transport" readonly="readonly" name="odp"><br></td>
+            </tr>
+        </table>
+
+        <table id="administracja_tabelka">
+            <tr>
+                <td>
+                    <div class="tekst">Administracja</div>
+                </td>
+                <td><input style="pointer-events: none;" readonly="readonly" type="number" id="inp_5" value="5"
+                        name="prc" min="0" max="100" step="0.01" onchange="procent_checker()"></td>
+                <td>%</td>
+                <td><input type="text" size="10" id="administracja_budzet" readonly="readonly" name="odp"><br></td>
+                <td><input type="text" size="10" id="administracja" readonly="readonly" name="odp"></td>
+            </tr>
+        </table>
+
+        <table id="mieszkaniowa_tabelka">
+            <tr>
+                <td>
+                    <div class="tekst">Mieszkaniowa</div>
+                </td>
+                <td><input style="pointer-events: none;" readonly="readonly" type="number" id="inp_6" value="5"
+                        name="prc" min="0" max="100" step="0.01" onchange="procent_checker()"></td>
+                <td>%</td>
+                <td><input type="text" size="10" id="mieszkaniowa_budzet" readonly="readonly" name="odp"><br></td>
+                <td><input type="text" size="10" id="mieszkaniowa" readonly="readonly" name="odp"><br></td>
+            </tr>
+        </table>
+
+        <table id="pozostale_tabelka">
+            <tr>
+                <td>
+                    <div class="tekst">Pozostałe</div>
+                </td>
+                <td><input style="pointer-events: none;" readonly="readonly" type="number" id="inp_7" name="prc"
+                        value='prc_7' min="0" max="100" step="0,01" onchange="procent_checker()"></td>
+                <td>%</td>
+                <td><input type="text" size="10" id="pozostale_budzet" readonly="readonly" name="odp"><br></td>
+                <td><input type="text" size="10" id="pozostale" readonly="readonly" name="odp"></td>
+            </tr>
+        </table>
+
+        <table id="budzet_tabelka">
+            <tr>
+                <td>
+                    <div class="tekst">Budżet Gminy:</div>
+                </td>
+                <td><input style="pointer-events: none;" readonly="readonly" type="number" value="50000"
+                        id="budzet_input" name="budzet" min="0" onchange="procent_checker()"></td>
+                <td>zł</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <!--============Zapisz i rok-->
+
+    <table id="zapisz_tabelka">
+
+        <tr>
+            <td>
+                <select id="rok" onchange="checker()">
+
+                    <option value='2021' selected>2021</option>
+                    <option value='2020'>2020</option>
+                    <option value='2019'>2019</option>
+                    <option value='2018'>2018</option>
+
+                </select>
+            </td>
+        </tr>
+
+    </table>
+
+    <!--============Kalkulator-->
+
+    <div id="kalkulator">
+
+        <form name="formularz">
+
+            <p>Kalkulator</p>
+
+            <input onkeyup="pomnoz()" type="text" size="10" id="textview" name="textview"><br>
+
+        </form>
+
+
+        <table>
+
+
+
+            <tr>
+
+                <td><input onkeyup="pomnoz()" class="button" type="button" value="7" onclick="insert(7)"></td>
+                <td><input onkeyup="pomnoz()" class="button" type="button" value="8" onclick="insert(8)"></td>
+                <td><input onkeyup="pomnoz()" class="button" type="button" value="9" onclick="insert(9)"></td>
+
+            </tr>
+
+            <tr>
+
+                <td><input onkeyup="pomnoz()" class="button" type="button" value="4" onclick="insert(4)"></td>
+                <td><input onkeyup="pomnoz()" class="button" type="button" value="5" onclick="insert(5)"></td>
+                <td><input onkeyup="pomnoz()" class="button" type="button" value="6" onclick="insert(6)"></td>
+
+            </tr>
+
+            <tr>
+
+                <td><input onkeyup="pomnoz()" class="button" type="button" value="1" onclick="insert(1)"></td>
+                <td><input onkeyup="pomnoz()" class="button" type="button" value="2" onclick="insert(2)"></td>
+                <td><input onkeyup="pomnoz()" class="button" type="button" value="3" onclick="insert(3)"></td>
+
+            </tr>
+
+            <tr>
+
+                <td colspan=0><input onkeyup="pomnoz()" class="button" type="button" value="0" onclick="insert(0)"></td>
+                <td><input class="button" type="button" value="C" onclick="clean()"></td>
+                <!--<td><input class ="button" type="button" value="<-" onclick="back()"></td>-->
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    <!--============Przycisk zaloguj-->
+
+    <div id="zaloguj">
+        <input type="button" onclick="location.href='login.php';" value="Zaloguj" style="width: 8em; height: 4em; font-size: 1.2rem; background: rgba(255, 255, 255, 0.1);
+		border-radius: 15px; color: #fff; position: absolute; right: 0; top: 0; margin: 1em; border-color: chartreuse;" />
+    </div>
+
+
+</body>
